@@ -153,3 +153,4 @@ cython_debug/
 
 # Flask config file
 config.py
+config_load.toml
