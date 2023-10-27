@@ -12,16 +12,15 @@ if __name__ == '__main__':
 
     years = [2022, 2021, 2020, 2019, 2018]
 
-    state_abbreviations = [ 'AK', 'AL', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA',
-                'HI', 'IA', 'ID', 'IL', 'IN', 'KS', 'KY', 'LA', 'MA', 'MD', 'ME',
-                'MI', 'MN', 'MO', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH', 'NJ', 'NM',
-                'NV', 'NY', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX',
-                'UT', 'VA', 'VT', 'WA', 'WI', 'WV', 'WY']
+    state_abbreviations = ['CO', 'UT', 'AZ', 'NM']
     
     state_years = list(itertools.product(years, state_abbreviations))
 
     try:
-        pool = multiprocessing.Pool(processes=multiprocessing.cpu_count())
+
+        cpu_floor = multiprocessing.cpu_count() - 2
+
+        pool = multiprocessing.Pool(processes= cpu_floor)
     
         pool.map(func= partial(worker.worker), iterable= state_years)
 

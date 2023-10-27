@@ -17,7 +17,7 @@ def worker(data_tuple):
 
     logging.info(f'Worker initialized for: {data_tuple[0]}-{data_tuple[1]}')
 
-    hmda_api_request = f'https://ffiec.cfpb.gov/v2/data-browser-api/view/csv?states={data_tuple[1]}&years={data_tuple[0]}'
+    hmda_api_request = f'https://ffiec.cfpb.gov/v2/data-browser-api/view/csv?states={data_tuple[1]}&years={data_tuple[0]}&actions_taken=1'
 
     #logging.info(f'{hmda_api_request}')
 
@@ -50,7 +50,7 @@ def worker(data_tuple):
             load_fragment['state'] = data_tuple[1]
             load_fragment['record_chunk'] = record_chunks[i]
 
-            #couch_db.save(load_fragment)
+            couch_db.save(load_fragment)
 
             counter += 1
 
