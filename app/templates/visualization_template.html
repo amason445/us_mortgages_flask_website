@@ -8,9 +8,9 @@
     <h2>Visualization 1</h2>
     <p>This section contains a set of visualations for {{ state }}</p>
     <h3>Visualization - Dummy Data</h3>
-    <img src="data:iamge/png;base64,{{plot|safe }}">
+    <img src="data:iamge/png;base64,{{ plot|safe }}">
     <h3>Download Dummy Data</h3>
-    <a href="{{ url_for('main.dummy_csv')}}"class="btn btn-primary">Download Dummy Data</a>
+    <a href="{{ url_for('main.dummy_csv')}}">Download Dummy Data</a>
 </body>
 
 
