@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html>
     <head>
-<title>Skeleton Graph Visualization</title>
+<title style="background-color: #B8C3C0;">Dummy Data Visualization</title>
     </head>
-<body>
+<body bgcolor="#B8C3C0">
     <h1>Summary Section</h1>
     <h2>Visualization 1</h2>
     <p>This section contains a set of visualations for {{ state }}</p>
     <h3>Visualization - Dummy Data</h3>
     <img src="data:iamge/png;base64,{{plot|safe }}">
-    <h3>Download Raw Data</h3>
+    <h3>Download Dummy Data</h3>
     <a href="{{ url_for('main.dummy_csv')}}"class="btn btn-primary">Download Dummy Data</a>
-
-
-
 </body>
 
 
