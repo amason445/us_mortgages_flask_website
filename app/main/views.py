@@ -1,6 +1,6 @@
 from . import main
-from . import visualizations as vis
-from . import csv_export as csv_exp
+from app import visualizations as vis
+from app import csv_export as csv_exp
 from flask import render_template, Response
 
 @main.route('/')
