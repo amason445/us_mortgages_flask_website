@@ -30,6 +30,6 @@ def download_dummy_data():
 @main.route('/state_level/<state>', endpoint = 'state_data')
 def state_level(state):
 
-    plot = vis.dummy_plot()
+    interest_plot = vis.state_interest_rates(state)
 
-    return render_template('visualization_template.html', state = state, plot = plot)
+    return render_template('state_pages.html', state = state, interest_plot = interest_plot)
