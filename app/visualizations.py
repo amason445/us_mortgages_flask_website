@@ -3,6 +3,7 @@ import app.utilities as utl
 import requests
 import pandas as pd
 from matplotlib import pyplot as plt
+import seaborn as sns
 from io import BytesIO
 import base64
 
@@ -30,24 +31,24 @@ def state_interest_rates(state_name):
 
         df = pd.DataFrame(request_data['rows'])
 
-        df[['Year', 'State']] = pd.DataFrame(df['key'].to_list(), index= df.index)
+        df[['Year', 'State', 'Loan Term']] = pd.DataFrame(df['key'].to_list(), index= df.index)
 
-        df = df[['Year','State','value']]
+        df = df[['Year','State', 'Loan Term', 'value']]
 
         df = df[df['State'] == state_name]
 
+        df['Loan Term'] = (df['Loan Term'] // 12).astype(str) + '-year'
+
         df['value'] = df['value'].round(2)
 
-        x = df['Year'].astype(int)
-        y = df['value']
-
-        plt.plot(x,y)
+        sns.lineplot(data = df, x = 'Year', y = 'value', hue= 'Loan Term')
 
         plt.locator_params(axis="x", integer=True, tight=True)
         
         plt.title(f"Average Interest Rates for the US State of {utl.state_abbreviation_mapping(state_name)}")
         plt.xlabel('Year')
-        plt.ylabel('Interest Rate')
+        plt.ylabel('Interest Rate (%)')
+        plt.legend(title = 'Loan Term')
 
         buffer = BytesIO()
         plt.savefig(buffer, format='png')
