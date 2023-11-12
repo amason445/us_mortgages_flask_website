@@ -1,5 +1,5 @@
 import logging
-logging.basicConfig(filename='logging\\db_load.log', encoding='utf-8', level=logging.INFO, 
+logging.basicConfig(filename='load_db\\logging\\db_load.log', encoding='utf-8', level=logging.INFO, 
                     format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
 
 import itertools
