@@ -7,10 +7,17 @@
     <h1>Project Summary</h1>
     <p>This website contains my project for MSDS 696...........</p>
     <h2>Project Directory</h2>
-    <ul>
-        <li><a href= "{{ url_for('main.dummy_data') }}">Demo Landing Page</a></li>
-        <li><a href= "{{ url_for('main.state_data', state= 'AZ') }}">Arizona State Data</a></li>
-    </ul>
+        <h3>State Time Series Pages</h3>
+        <ul>
+            <li><a href= "{{ url_for('main.state_data', state= 'AZ') }}">Arizona Time Series Data</a></li>
+            <li><a href= "{{ url_for('main.state_data', state= 'CO') }}">Colorado Time Series Data</a></li>
+            <li><a href= "{{ url_for('main.state_data', state= 'NM') }}">New Mexico Time Series Data</a></li>
+            <li><a href= "{{ url_for('main.state_data', state= 'UT') }}">Utah Time Series Data</a></li>
+        </ul>
+        <h3>Initial Demo Page</h3>
+        <ul>
+            <li><a href= "{{ url_for('main.dummy_data') }}">Demo Landing Page</a></li>
+        </ul>
 </body>
 
 </html>
