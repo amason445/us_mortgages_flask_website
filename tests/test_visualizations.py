@@ -28,6 +28,8 @@ class TestVisualizations(unittest.TestCase):
 
             with open(f'tests/interest_rate_graphs/{state_name}_interest_rate.png', 'wb') as f:
                 f.write(bin_data)
+                f.close()
+
         except Exception as e:
             print(e)
 
