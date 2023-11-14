@@ -1,4 +1,3 @@
-from app.config import Config
 import app.utilities as utl
 import app.models as mdl
 

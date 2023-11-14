@@ -1,6 +1,7 @@
 from . import main
 from app import visualizations as vis
 from app import csv_export as csv_exp
+from app import utilities as utl
 from flask import render_template, Response
 
 @main.route('/')
@@ -30,6 +31,8 @@ def download_dummy_data():
 @main.route('/state_level/<state>', endpoint = 'state_data')
 def state_level(state):
 
+    state_long_name = utl.state_abbreviation_mapping(state)
+
     interest_plot = vis.state_interest_rates(state)
 
-    return render_template('state_pages.html', state = state, interest_plot = interest_plot)
+    return render_template('state_pages.html', state = state, interest_plot = interest_plot, state_long_name = state_long_name)
