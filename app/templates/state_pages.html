@@ -7,9 +7,9 @@
     <h1>Summary Section</h1>
     <h2>Visualizations</h2>
     <p>This section contains a set of visualations for the state of {{ state_long_name }}</p>
-    <h3>Visualization - Loan Volume</h3>
+    <h3>Mortgage Loan Volume - Visualization</h3>
     <img src="data:iamge/png;base64,{{ loan_volume_plot|safe }}">
-    <h3>Visualization - Interest Rates</h3>
+    <h3>Average Mortgage Rates - Visualization</h3>
     <img src="data:iamge/png;base64,{{ interest_plot|safe }}">
     <h3>Download Dummy Data</h3>
     <a href="{{ url_for('main.dummy_csv')}}">Download Dummy Data</a>

@@ -28,7 +28,7 @@ def state_loan_volumes(state_name):
 
         plt.locator_params(axis="x", integer=True, tight=True)
         
-        plt.title(f"Loan Volume for the US State of {utl.state_abbreviation_mapping(state_name)}")
+        plt.title(f"Mortgage Loan Volume for the US State of {utl.state_abbreviation_mapping(state_name)}")
         plt.xlabel('Year')
         plt.ylabel('Loan Volume')
 
