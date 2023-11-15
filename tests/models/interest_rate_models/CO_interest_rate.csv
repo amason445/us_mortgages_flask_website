@@ -1,11 +1,11 @@
-,Year,State,Loan Term,value
-2,2018,CO,15-year,4.45
-3,2018,CO,30-year,4.76
-10,2019,CO,15-year,3.77
-11,2019,CO,30-year,4.23
-18,2020,CO,15-year,2.84
-19,2020,CO,30-year,3.24
-26,2021,CO,15-year,2.47
-27,2021,CO,30-year,2.98
-34,2022,CO,15-year,4.04
-35,2022,CO,30-year,4.64
+Year,State,Loan Term,value
+2018,CO,15-year,4.45
+2018,CO,30-year,4.76
+2019,CO,15-year,3.77
+2019,CO,30-year,4.23
+2020,CO,15-year,2.84
+2020,CO,30-year,3.24
+2021,CO,15-year,2.47
+2021,CO,30-year,2.98
+2022,CO,15-year,4.04
+2022,CO,30-year,4.64

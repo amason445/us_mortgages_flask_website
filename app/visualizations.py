@@ -19,6 +19,32 @@ def dummy_plot():
 
     return base64.b64encode(buffer.read()).decode()
 
+def state_loan_volumes(state_name):
+    try:
+
+        df = mdl.StateLoanVolumes(state_name= state_name).return_df()
+
+        sns.barplot(data = df, x = 'Year', y = 'value')
+
+        plt.locator_params(axis="x", integer=True, tight=True)
+        
+        plt.title(f"Loan Volume for the US State of {utl.state_abbreviation_mapping(state_name)}")
+        plt.xlabel('Year')
+        plt.ylabel('Loan Volume')
+
+        buffer = BytesIO()
+        plt.savefig(buffer, format='png')
+        buffer.seek(0)
+
+        plt.clf()
+        plt.close()
+        
+        return base64.b64encode(buffer.read()).decode()
+    
+    except Exception as e:
+        print(e)
+
+
 def state_interest_rates(state_name):
     try:
 

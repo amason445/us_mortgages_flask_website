@@ -1,11 +1,11 @@
-,Year,State,Loan Term,value
-6,2018,UT,15-year,4.55
-7,2018,UT,30-year,4.91
-14,2019,UT,15-year,3.88
-15,2019,UT,30-year,4.29
-22,2020,UT,15-year,2.82
-23,2020,UT,30-year,3.57
-30,2021,UT,15-year,2.57
-31,2021,UT,30-year,3.06
-38,2022,UT,15-year,4.44
-39,2022,UT,30-year,4.75
+Year,State,Loan Term,value
+2018,UT,15-year,4.55
+2018,UT,30-year,4.91
+2019,UT,15-year,3.88
+2019,UT,30-year,4.29
+2020,UT,15-year,2.82
+2020,UT,30-year,3.57
+2021,UT,15-year,2.57
+2021,UT,30-year,3.06
+2022,UT,15-year,4.44
+2022,UT,30-year,4.75

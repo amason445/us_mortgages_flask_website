@@ -23,13 +23,24 @@ class BasicsTestCase(unittest.TestCase):
         self.assertTrue(current_app.config['TESTING'])
 
 class TestModels(unittest.TestCase):
+    def loan_volume_model_test(self, state_name):
+        try:
+            df = mdl.StateLoanVolumes(state_name= state_name).return_df()
+
+            if df is not None:
+                df.to_csv(f'tests/models/loan_volume_models/{state_name}_volumes.csv', index= False)
+            else:
+                print(f"Failed to fetch data for state {state_name}")
+
+        except Exception as e:
+            print(e)
 
     def interest_rate_model_test(self, state_name):
         try:
             df = mdl.StateInterestRateSeries(state_name= state_name).return_df()
-            
+
             if df is not None:
-                df.to_csv(f'tests/models/interest_rate_models/{state_name}_interest_rate.csv')
+                df.to_csv(f'tests/models/interest_rate_models/{state_name}_interest_rate.csv', index= False)
             else:
                 print(f"Failed to fetch data for state {state_name}")
 
@@ -40,9 +51,23 @@ class TestModels(unittest.TestCase):
         state_list = ['AZ', 'CO', 'NM', 'UT']
 
         for state in state_list:
+            self.loan_volume_model_test(state_name=state)
             self.interest_rate_model_test(state_name= state)
 
 class TestVisualizations(unittest.TestCase):
+
+    def loan_volumes_test(self, state_name):
+        try:
+            plot = vis.state_loan_volumes(state_name=state_name)
+            bin_data = base64.b64decode(plot)
+
+            with open(f'tests/graphs/loan_volume_graphs/{state_name}_volumes.png', 'wb') as f:
+                f.write(bin_data)
+                f.close()
+
+        except Exception as e:
+            print(e)
+
 
     def interest_rates_test(self, state_name):
         try:
@@ -60,4 +85,5 @@ class TestVisualizations(unittest.TestCase):
         state_list = ['AZ', 'CO', 'NM', 'UT']
 
         for state in state_list:
+            # self.loan_volumes_test(state_name=state)
             self.interest_rates_test(state_name=state)

@@ -33,6 +33,7 @@ def state_level(state):
 
     state_long_name = utl.state_abbreviation_mapping(state)
 
+    loan_volume_plot = vis.state_loan_volumes(state)
     interest_plot = vis.state_interest_rates(state)
 
-    return render_template('state_pages.html', state = state, interest_plot = interest_plot, state_long_name = state_long_name)
+    return render_template('state_pages.html', state = state, loan_volume_plot = loan_volume_plot, interest_plot = interest_plot, state_long_name = state_long_name)
