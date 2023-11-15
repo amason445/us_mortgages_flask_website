@@ -1,15 +1,61 @@
 <!DOCTYPE html>
 <html>
     <head>
-<title style="background-color: #B8C3C0;">Dummy Data Visualization</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title style="background-color: #B8C3C0;">Dummy Data Visualization</title>
+        <style>
+            body {
+                background-color: #B8C3C0;
+                font-family: 'Arial', sans-serif;
+                margin: 20px;
+                padding: 20px;
+            }
+    
+            h1 {
+                color: #333;
+            }
+    
+            h2 {
+                color: #444;
+            }
+    
+            h3 {
+                color: #555;
+                border-bottom: 2px solid #555;
+                padding-bottom: 5px;
+                margin-top: 20px;
+            }
+    
+            p {
+                color: #666;
+            }
+    
+            a {
+                display: inline-block;
+                padding: 10px 20px;
+                margin-top: 10px;
+                background-color: #305277;
+                color: #fff;
+                text-decoration: none;
+                border-radius: 5px;
+            }
+    
+            img {
+                max-width: 100%;
+                height: auto;
+                border: 1px solid #888;
+                margin-top: 10px;
+            }
+        </style>
     </head>
-<body bgcolor="#B8C3C0">
+<body>
     <h1>Summary Section</h1>
     <h2>Visualizations</h2>
     <p>This section contains a set of visualations for the state of {{ state_long_name }}</p>
-    <h3>Mortgage Loan Volume - Visualization</h3>
+    <h3>Mortgage Loan Volume<h3>
     <img src="data:iamge/png;base64,{{ loan_volume_plot|safe }}">
-    <h3>Average Mortgage Rates - Visualization</h3>
+    <h3>Average Mortgage Rates</h3>
     <img src="data:iamge/png;base64,{{ interest_plot|safe }}">
     <h3>Download Dummy Data</h3>
     <a href="{{ url_for('main.dummy_csv')}}">Download Dummy Data</a>
