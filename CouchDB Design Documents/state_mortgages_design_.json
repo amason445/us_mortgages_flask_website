@@ -1,46 +1,54 @@
 {
-    "_id": "_design/state_mortgages_design_",
-    "_rev": "30-0e1dc689e8602fca860b32a73c8e8bb6",
-    "views": {
-      "year_count": {
-        "map": "function(doc) {\n    if (doc.year) {\n        emit(doc.year, 1)\n    }\n}",
-        "reduce": "_sum"
-      },
-      "year_state_count": {
-        "reduce": "_sum",
-        "map": "function (doc) {\n  if (doc.year && doc.state) { emit([doc.year, doc.state], 1) }\n}"
-      },
-      "year_state_records": {
-        "reduce": "_sum",
-        "map": "function(doc) {\n    if (doc.year && doc.state && doc.record_chunk) {\n        emit([doc.year, doc.state], doc.record_chunk.length);\n    }\n}"
-      },
-      "year_records": {
-        "reduce": "_sum",
-        "map": "function(doc) {\n    if (doc.year && doc.record_chunk) {\n        emit(doc.year, doc.record_chunk.length);\n    }\n}"
-      },
-      "total_loaned_per_state": {
-        "reduce": "_sum",
-        "map": "function (doc) {\n  if(doc.year && doc.state && Array.isArray(doc.record_chunk)) {\n    for (var i = 0; i < doc.record_chunk.length; i++) {\n      var record = doc.record_chunk[i];\n      var loan_amount = parseFloat(record.loan_amount);\n      if (!isNaN(loan_amount)) {\n        emit([doc.year, doc.state], loan_amount);\n      }\n    }\n  }\n}"
-      },
-      "average_interest_rate_per_state": {
-        "reduce": "function (keys, values, rereduce) {\r\n  var total = 0;\r\n  var totalCount = 0;\r\n\r\n  if (rereduce) {\r\n    for (var i = 0; i < values.length; i++) {\r\n      total += values[i];\r\n      totalCount++;\r\n    }\r\n  } else {\r\n    total = sum(values);\r\n    totalCount = values.length;\r\n  }\r\n\r\n  var average = totalCount > 0 ? total / totalCount : 0;\r\n  return average;\r\n}",
-        "map": "function (doc) {\n  if(doc.year && doc.state && Array.isArray(doc.record_chunk)) {\n    for (var i = 0; i < doc.record_chunk.length; i++) {\n      var record = doc.record_chunk[i];\n      var interest_rate = parseFloat(record.interest_rate);\n      if (!isNaN(interest_rate)) {\n        emit([doc.year, doc.state], interest_rate);\n      }\n    }\n  }\n}"
-      },
-      "loans_by_county": {
-        "map": "function(doc) {\n  if (doc.state && Array.isArray(doc.record_chunk)) {\n    for (var i = 0; i < doc.record_chunk.length; i++) {\n      var record = doc.record_chunk[i];\n      var county = record.county_code;\n      emit([doc.state, county], 1);\n    }\n  }\n}",
-        "reduce": "_sum"
-      },
-      "loan_amount_by_county": {
-        "reduce": "_sum",
-        "map": "function(doc) {\n  if (doc.state && Array.isArray(doc.record_chunk)) {\n    for (var i = 0; i < doc.record_chunk.length; i++) {\n      var record = doc.record_chunk[i];\n      var county = record.county_code;\n      var loan_amount = parseFloat(record.loan_amount);\n      if (!isNaN(loan_amount)) {\n        emit([doc.state, county], loan_amount);\n      }\n    }\n  }\n}"
-      },
-      "average_interest_rate_per_county": {
-        "map": "function (doc) {\n  if(doc.year && doc.state && Array.isArray(doc.record_chunk)) {\n    for (var i = 0; i < doc.record_chunk.length; i++) {\n      var record = doc.record_chunk[i];\n      var county = record.county_code;\n      var interest_rate = parseFloat(record.interest_rate);\n      if (!isNaN(interest_rate)) {\n        emit([doc.state, doc.county], interest_rate);\n      }\n    }\n  }\n}",
-        "reduce": "function (keys, values, rereduce) {\r\n  var total = 0;\r\n  var totalCount = 0;\r\n\r\n  if (rereduce) {\r\n    for (var i = 0; i < values.length; i++) {\r\n      total += values[i];\r\n      totalCount++;\r\n    }\r\n  } else {\r\n    total = sum(values);\r\n    totalCount = values.length;\r\n  }\r\n\r\n  var average = totalCount > 0 ? total / totalCount : 0;\r\n  return average;\r\n}"
-      },
-      "loan_approvals_by_race": {
-        "reduce": "_sum",
-        "map": "function(doc) {\n  if (doc.year && doc.state && Array.isArray(doc.record_chunk)) {\n    for (var i = 0; i < doc.record_chunk.length; i++) {\n      var record = doc.record_chunk[i];\n      var derived_race = record.derived_race;\n      emit([doc.year, doc.state, derived_race], 1);\n    }\n  }\n}"
-      }
+  "_id": "_design/state_mortgages_design_",
+  "_rev": "49-983a91e23413aab75db5b50688cf00bf",
+  "views": {
+    "year_count": {
+      "map": "function(doc) {\n    if (doc.year) {\n        emit(doc.year, 1)\n    }\n}",
+      "reduce": "_sum"
+    },
+    "year_state_count": {
+      "reduce": "_sum",
+      "map": "function (doc) {\n  if (doc.year && doc.state) { emit([doc.year, doc.state], 1) }\n}"
+    },
+    "year_state_records": {
+      "reduce": "_sum",
+      "map": "function(doc) {\n    if (doc.year && doc.state && doc.record_chunk) {\n        emit([doc.year, doc.state], doc.record_chunk.length);\n    }\n}"
+    },
+    "year_records": {
+      "reduce": "_sum",
+      "map": "function(doc) {\n    if (doc.year && doc.record_chunk) {\n        emit(doc.year, doc.record_chunk.length);\n    }\n}"
+    },
+    "total_loaned_per_state": {
+      "reduce": "_sum",
+      "map": "function (doc) {\n  if(doc.year && doc.state && Array.isArray(doc.record_chunk)) {\n    for (var i = 0; i < doc.record_chunk.length; i++) {\n      var record = doc.record_chunk[i];\n      var loan_term = parseInt(record.loan_term);\n      if (loan_term == 360 || loan_term == 180) {\n        var loan_amount = parseFloat(record.loan_amount);\n        if (!isNaN(loan_amount)) {\n          emit([doc.year, doc.state, loan_term], loan_amount);\n        }\n      }\n    }\n  }\n}"
+    },
+    "average_interest_rate_per_state": {
+      "reduce": "function (keys, values, rereduce) {\r\n  var total = 0;\r\n  var totalCount = 0;\r\n\r\n  if (rereduce) {\r\n    for (var i = 0; i < values.length; i++) {\r\n      total += values[i];\r\n      totalCount++;\r\n    }\r\n  } else {\r\n    total = sum(values);\r\n    totalCount = values.length;\r\n  }\r\n\r\n  var average = totalCount > 0 ? total / totalCount : 0;\r\n  return average;\r\n}",
+      "map": "function (doc) {\n  if(doc.year && doc.state && Array.isArray(doc.record_chunk)) {\n    for (var i = 0; i < doc.record_chunk.length; i++) {\n      var record = doc.record_chunk[i];\n      var loan_term = parseInt(record.loan_term);\n      if (loan_term == 360 || loan_term == 180) {\n        var interest_rate = parseFloat(record.interest_rate);\n        if (!isNaN(interest_rate)) {\n          emit([doc.year, doc.state, loan_term], interest_rate);\n        }\n      }\n    }\n  }\n}"
+    },
+    "average_interest_rate_per_county": {
+      "map": "function (doc) {\n  if(doc.year && doc.state && Array.isArray(doc.record_chunk)) {\n    for (var i = 0; i < doc.record_chunk.length; i++) {\n      var record = doc.record_chunk[i];\n      var county = record.county_code;\n      var interest_rate = parseFloat(record.interest_rate);\n      if (!isNaN(interest_rate)) {\n        emit([doc.state, county], interest_rate);\n      }\n    }\n  }\n}",
+      "reduce": "function (keys, values, rereduce) {\r\n  var total = 0;\r\n  var totalCount = 0;\r\n\r\n  if (rereduce) {\r\n    for (var i = 0; i < values.length; i++) {\r\n      total += values[i];\r\n      totalCount++;\r\n    }\r\n  } else {\r\n    total = sum(values);\r\n    totalCount = values.length;\r\n  }\r\n\r\n  var average = totalCount > 0 ? total / totalCount : 0;\r\n  return average;\r\n}"
+    },
+    "loan_approvals_by_race": {
+      "reduce": "_sum",
+      "map": "function(doc) {\n  if (doc.year && doc.state && Array.isArray(doc.record_chunk)) {\n    for (var i = 0; i < doc.record_chunk.length; i++) {\n      var record = doc.record_chunk[i];\n      var derived_race = record.derived_race;\n      emit([doc.year, doc.state, derived_race], 1);\n    }\n  }\n}"
+    },
+    "average_ltv_per_state": {
+      "map": "function (doc) {\n  if(doc.year && doc.state && Array.isArray(doc.record_chunk)) {\n    for (var i = 0; i < doc.record_chunk.length; i++) {\n      var record = doc.record_chunk[i];\n      var loan_term = parseInt(record.loan_term);\n      if (loan_term == 360 || loan_term == 180) {\n        var ltv = parseFloat(record.loan_to_value_ratio);\n        if (!isNaN(ltv)) {\n          emit([doc.year, doc.state, loan_term], ltv);\n        }\n      }\n    }\n  }\n}",
+      "reduce": "function (keys, values, rereduce) {\r\n  var total = 0;\r\n  var totalCount = 0;\r\n\r\n  if (rereduce) {\r\n    for (var i = 0; i < values.length; i++) {\r\n      total += values[i];\r\n      totalCount++;\r\n    }\r\n  } else {\r\n    total = sum(values);\r\n    totalCount = values.length;\r\n  }\r\n\r\n  var average = totalCount > 0 ? total / totalCount : 0;\r\n  return average;\r\n}"
+    },
+    "average_ltv_per_county": {
+      "reduce": "function (keys, values, rereduce) {\r\n  var total = 0;\r\n  var totalCount = 0;\r\n\r\n  if (rereduce) {\r\n    for (var i = 0; i < values.length; i++) {\r\n      total += values[i];\r\n      totalCount++;\r\n    }\r\n  } else {\r\n    total = sum(values);\r\n    totalCount = values.length;\r\n  }\r\n\r\n  var average = totalCount > 0 ? total / totalCount : 0;\r\n  return average;\r\n}",
+      "map": "function (doc) {\n  if(doc.year && doc.state && Array.isArray(doc.record_chunk)) {\n    for (var i = 0; i < doc.record_chunk.length; i++) {\n      var record = doc.record_chunk[i];\n      var county = record.county_code;\n      var interest_rate = parseFloat(record.interest_rate);\n      if (!isNaN(interest_rate)) {\n        emit([doc.state, county], interest_rate);\n      }\n    }\n  }\n}"
+    },
+    "total_loaned_by_county": {
+      "reduce": "_sum",
+      "map": "function(doc) {\n  if (doc.state && Array.isArray(doc.record_chunk)) {\n    for (var i = 0; i < doc.record_chunk.length; i++) {\n      var record = doc.record_chunk[i];\n      var county = record.county_code;\n      var loan_amount = parseFloat(record.loan_amount);\n      if (!isNaN(loan_amount)) {\n        emit([doc.state, county], loan_amount);\n      }\n    }\n  }\n}"
+    },
+    "total_loans_by_county": {
+      "reduce": "_sum",
+      "map": "function(doc) {\n  if (doc.state && Array.isArray(doc.record_chunk)) {\n    for (var i = 0; i < doc.record_chunk.length; i++) {\n      var record = doc.record_chunk[i];\n      var county = record.county_code;\n      emit([doc.state, county], 1);\n    }\n  }\n}"
     }
   }
+}
