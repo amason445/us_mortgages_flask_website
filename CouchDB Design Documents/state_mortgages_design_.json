@@ -1,6 +1,6 @@
 {
   "_id": "_design/state_mortgages_design_",
-  "_rev": "49-983a91e23413aab75db5b50688cf00bf",
+  "_rev": "51-b95ea9186fa1b5620b8abc6244da978c",
   "views": {
     "year_count": {
       "map": "function(doc) {\n    if (doc.year) {\n        emit(doc.year, 1)\n    }\n}",
@@ -35,7 +35,7 @@
       "map": "function(doc) {\n  if (doc.year && doc.state && Array.isArray(doc.record_chunk)) {\n    for (var i = 0; i < doc.record_chunk.length; i++) {\n      var record = doc.record_chunk[i];\n      var derived_race = record.derived_race;\n      emit([doc.year, doc.state, derived_race], 1);\n    }\n  }\n}"
     },
     "average_ltv_per_state": {
-      "map": "function (doc) {\n  if(doc.year && doc.state && Array.isArray(doc.record_chunk)) {\n    for (var i = 0; i < doc.record_chunk.length; i++) {\n      var record = doc.record_chunk[i];\n      var loan_term = parseInt(record.loan_term);\n      if (loan_term == 360 || loan_term == 180) {\n        var ltv = parseFloat(record.loan_to_value_ratio);\n        if (!isNaN(ltv)) {\n          emit([doc.year, doc.state, loan_term], ltv);\n        }\n      }\n    }\n  }\n}",
+      "map": "function (doc) {\n  if(doc.year && doc.state && Array.isArray(doc.record_chunk)) {\n    for (var i = 0; i < doc.record_chunk.length; i++) {\n      var record = doc.record_chunk[i];\n      var loan_term = parseInt(record.loan_term);\n      if (loan_term == 360 || loan_term == 180) {\n        var ltv = parseFloat(record.loan_to_value_ratio);\n        if (!isNaN(ltv) && (ltv <= 200)) {\n          emit([doc.year, doc.state, loan_term], ltv);\n        }\n      }\n    }\n  }\n}",
       "reduce": "function (keys, values, rereduce) {\r\n  var total = 0;\r\n  var totalCount = 0;\r\n\r\n  if (rereduce) {\r\n    for (var i = 0; i < values.length; i++) {\r\n      total += values[i];\r\n      totalCount++;\r\n    }\r\n  } else {\r\n    total = sum(values);\r\n    totalCount = values.length;\r\n  }\r\n\r\n  var average = totalCount > 0 ? total / totalCount : 0;\r\n  return average;\r\n}"
     },
     "average_ltv_per_county": {

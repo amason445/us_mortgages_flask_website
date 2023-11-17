@@ -85,7 +85,7 @@ def state_ltvs(state_name):
         
         plt.title(f"Average Loan to Value for the US State of {utl.state_abbreviation_mapping(state_name)}")
         plt.xlabel('Year')
-        plt.ylabel('Interest Rate (%)')
+        plt.ylabel('Loan to Value (%)')
         plt.legend(title = 'Loan Term')
 
         buffer = BytesIO()
