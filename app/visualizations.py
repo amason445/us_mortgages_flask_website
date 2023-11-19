@@ -99,3 +99,32 @@ def state_ltvs(state_name):
     
     except Exception as e:
         print(e)
+
+def state_loan_amounts(state_name):
+    try:
+
+        df = mdl.StateLoanAmount(state_name=state_name).return_df()
+
+        df['value'] = df['value'] / 1000000
+
+        sns.lineplot(data = df, x = 'Year', y = 'value', hue= 'Loan Term')
+        
+        ax = plt.gca()
+        ax.xaxis.set_major_locator(plt.MaxNLocator(integer=True))
+        
+        plt.title(f"Total Loan Volume in Dollars for the US State of {utl.state_abbreviation_mapping(state_name)}")
+        plt.xlabel('Year')
+        plt.ylabel('Total Loaned ($Ms)')
+        plt.legend(title = 'Loan Term')
+
+        buffer = BytesIO()
+        plt.savefig(buffer, format='png')
+        buffer.seek(0)
+
+        plt.clf()
+        plt.close()
+        
+        return base64.b64encode(buffer.read()).decode()
+    
+    except Exception as e:
+        print(e)

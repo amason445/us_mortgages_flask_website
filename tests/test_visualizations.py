@@ -59,6 +59,17 @@ class TestModels(unittest.TestCase):
         except Exception as e:
             print(e)
 
+    def loan_amount_test(self, state_name):
+        try:
+            df = mdl.StateLoanAmount(state_name= state_name).return_df()
+
+            if df is not None:
+                df.to_csv(f'tests/models/loan_amounts/{state_name}_loan_amounts.csv', index= False)
+            else:
+                print(f"Failed to fetch data for state {state_name}")
+
+        except Exception as e:
+            print(e)
 
     def test_models(self):
         state_list = ['AZ', 'CO', 'NM', 'UT']
@@ -67,6 +78,7 @@ class TestModels(unittest.TestCase):
             self.loan_volume_model_test(state_name=state)
             self.interest_rate_model_test(state_name= state)
             self.loan_to_value_model_test(state_name= state)
+            self.loan_amount_test(state_name=state)
 
 class TestVisualizations(unittest.TestCase):
 
@@ -82,6 +94,17 @@ class TestVisualizations(unittest.TestCase):
         except Exception as e:
             print(e)
 
+    def loan_amount_test(self, state_name):
+        try:
+            plot = vis.state_loan_amounts(state_name= state_name)
+            bin_data = base64.b64decode(plot)
+
+            with open(f'tests/graphs/loan_amount_graphs/{state_name}_amounts.png', 'wb') as f:
+                f.write(bin_data)
+                f.close()
+
+        except Exception as e:
+            print(e)
 
     def interest_rates_test(self, state_name):
         try:
@@ -115,3 +138,4 @@ class TestVisualizations(unittest.TestCase):
             self.loan_volumes_test(state_name=state)
             self.interest_rates_test(state_name=state)
             self.ltvs_test(state_name=state)
+            self.loan_amount_test(state_name=state)
