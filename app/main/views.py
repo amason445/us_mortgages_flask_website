@@ -28,8 +28,25 @@ def download_dummy_data():
 
     return Response(raw_data, content_type= 'text/csv', headers={'Content-Disposition': 'attachment; filename=dummy_data.csv'})
 
+@main.route('/state_level/<state>/state_volumes_csv', endpoint = 'volumes_csv')
+def download_state_volumes(state):
+
+    raw_data = csv_exp.mortgage_volume(state_name = state)
+
+    return Response(raw_data, content_type= 'text/csv', headers={'Content-Disposition': f'attachment; filename={state}_volume_data.csv'})
+
+@main.route('/state_level/<state>/state_averages_csv', endpoint = 'averages_csv')
+def download_state_averages(state):
+
+    raw_data = csv_exp.mortgage_averages(state_name=state)
+
+    return Response(raw_data, content_type= 'text/csv', headers={'Content-Disposition': f'attachment; filename={state}_averages_data.csv'})
+
+
 @main.route('/state_level/<state>', endpoint = 'state_data')
 def state_level(state):
+
+    state = state
 
     state_long_name = utl.state_abbreviation_mapping(state)
 

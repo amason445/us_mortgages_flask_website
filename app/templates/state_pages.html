@@ -18,9 +18,11 @@
     <img src="data:iamge/png;base64,{{ interest_plot|safe }}">
     <h3>Average Mortgage Loan to Value</h3>
     <img src="data:iamge/png;base64,{{ ltv_plot|safe }}">
-    <h2>Download Dummy Data</h3>
-    <a href="{{ url_for('main.dummy_csv')}}">Download Dummy Data</a>
+    <h2>Download State Mortgage Data</h2>
+    <ul>
+        <li><a href="{{ url_for('main.volumes_csv', state = state) }}">Download State Volume Data</a></li>
+        <li><a href="{{ url_for('main.averages_csv', state = state) }}">Download State Averages Data</a></li>
+    </ul>
 </body>
-
 
 </html>
