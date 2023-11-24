@@ -3,9 +3,7 @@ import app.utilities as utl
 
 from abc import ABC, abstractmethod
 
-import requests
 import pandas as pd
-import geopandas as gp
 
 # I wrote a simple interace for the CouchDB querying to help with unit testing
 # I used an abstract method and based it off the below in Java
