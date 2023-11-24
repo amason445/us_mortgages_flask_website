@@ -5,6 +5,7 @@ from abc import ABC, abstractmethod
 
 import pandas as pd
 
+
 # I wrote a simple interace for the CouchDB querying to help with unit testing
 # I used an abstract method and based it off the below in Java
 # https://www.w3schools.com/java/java_interface.asp
