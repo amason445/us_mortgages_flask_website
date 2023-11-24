@@ -71,6 +71,16 @@ class TestModels(unittest.TestCase):
         except Exception as e:
             print(e)
 
+    def geo_county_test(self, state_name):
+        try:
+            df = mdl.CountyGeo(state_name= state_name).return_df()
+
+            if df is not None:
+                df.to_csv(f'tests/models/county_geo/{state_name}_county_geo.csv', index= False)
+
+        except Exception as e:
+            print(e)
+
     def test_models(self):
         state_list = ['AZ', 'CO', 'NM', 'UT']
 
@@ -78,7 +88,8 @@ class TestModels(unittest.TestCase):
             self.loan_volume_model_test(state_name=state)
             self.interest_rate_model_test(state_name= state)
             self.loan_to_value_model_test(state_name= state)
-            self.loan_amount_test(state_name=state)
+            self.loan_amount_test(state_name= state)
+            self.geo_county_test(state_name= state)
 
 class TestVisualizations(unittest.TestCase):
 

@@ -156,3 +156,6 @@ config.py
 config_load.toml
 Procfile.txt
 *.ps1
+
+ShapeETL/
+app/data/county_shapes/*
