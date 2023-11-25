@@ -3,6 +3,7 @@ from flask import current_app
 from app import create_app
 from app import models as mdl
 from app import visualizations as vis
+from app import dashboards as dbs
 
 import pandas as pd
 import base64
@@ -150,3 +151,22 @@ class TestVisualizations(unittest.TestCase):
             self.interest_rates_test(state_name=state)
             self.ltvs_test(state_name=state)
             self.loan_amount_test(state_name=state)
+
+class TestDashboards(unittest.TestCase):
+
+    def geo_dashboards_test(self, state_name):
+        try:
+            html_content = dbs.geo_dashboard(state_name= state_name)
+
+            with open(f'tests/dashboards/{state_name}_geo.html', 'w') as f:
+                f.write(html_content)
+                f.close()
+        
+        except Exception as e:
+            print(e)
+
+    def test_dashboards(self):
+            state_list = ['AZ', 'CO', 'NM', 'UT']
+
+            for state in state_list:
+                self.geo_dashboards_test(state_name= state)

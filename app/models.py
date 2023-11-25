@@ -108,6 +108,7 @@ class CountyGeo(CouchDBQuery):
 
         final_df = final_df[final_df['State'] == self.state_name]
         final_df['Loan Term'] = (final_df['Loan Term'] // 12).astype(str) + '-year'
+        final_df['County'] = final_df['County'].astype(str)
 
         return final_df
 

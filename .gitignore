@@ -157,5 +157,6 @@ config_load.toml
 Procfile.txt
 *.ps1
 
-ShapeETL/
+ShapeETL/county_shapes/*
+ShapeETL/state_shapes/*
 app/data/county_shapes/*
