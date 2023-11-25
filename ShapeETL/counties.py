@@ -1,58 +1,95 @@
 import geopandas as gp
 import pandas as pd
 
-import json
-from shapely.geometry import Polygon
-
 import folium
-from folium import ColorMap
 
-county_data_df = pd.read_csv('tests/models/county_geo/CO_county_geo.csv', dtype= 'object')
-county_data_df['County'] = county_data_df['County'].astype(str)
+import itertools
 
-# pull shapes df and drop unnecessary columns
-state_shapes_df = gp.read_file('ShapeETL//state_shapes//tl_rd22_us_state.shp')
-county_shapes_df = gp.read_file('app//data//county_shapes//tl_rd22_us_county.shp')
+def state_capital_coordinates(abbreviation):
+        match abbreviation:
+            case 'AZ':
+                return [33.4484, -112.0740]
+            case 'CO':
+                return [39.7392,-104.991531]
+            case 'NM':
+                return [35.691544, -105.944183]
+            case 'UT':
+                return [40.758701, -111.876183]
 
-state_shapes_df = state_shapes_df[(state_shapes_df['STUSPS'] == 'AZ') | (state_shapes_df['STUSPS'] == 'CO') |
-                                  (state_shapes_df['STUSPS'] == 'NM') | (state_shapes_df['STUSPS'] == 'UT')] 
+def geo_dashboard(state_name, year, loan_term, datapoint):
 
-state_shapes_df = state_shapes_df [['STUSPS', 'STATEFP']]
+    county_data_df = pd.read_csv('tests/models/county_geo/CO_county_geo.csv', dtype= 'object')
+    county_data_df['County'] = county_data_df['County'].astype(str)
 
-county_shapes_df = state_shapes_df.merge(county_shapes_df, how = 'inner', on = 'STATEFP')
+    # pull shapes df and drop unnecessary columns
+    state_shapes_df = gp.read_file('app//data//state_shapes//tl_rd22_us_state.shp')
+    county_shapes_df = gp.read_file('app//data//county_shapes//tl_rd22_us_county.shp')
 
-county_shapes_df = county_shapes_df[['STUSPS', 'STATEFP', 'GEOID', 'NAME', 'geometry']]
+    # filter state df and combine it with county dfs to pull state counties
+    state_shapes_df = state_shapes_df[(state_shapes_df['STUSPS'] == state_name)]
+    state_shapes_df = state_shapes_df[['STUSPS', 'STATEFP']]
+    county_shapes_df = state_shapes_df.merge(county_shapes_df, how = 'inner', on = 'STATEFP')
+    county_shapes_df = county_shapes_df[['STUSPS', 'STATEFP', 'GEOID', 'NAMELSAD', 'geometry']]
 
-county_shapes_df = county_shapes_df.merge(county_data_df, how = 'inner', left_on = 'GEOID', right_on = 'County')
+    #merge state counties with state mortgage data
+    county_shapes_merge = county_shapes_df.merge(county_data_df, how = 'inner', left_on = 'GEOID', right_on = 'County')
 
-numeric_columns = ['Loan Volume', 'Average Interest Rate', 'Total Loan Amount', 'Average Loan to Value']
-county_shapes_df[numeric_columns] = county_shapes_df[numeric_columns].apply(pd.to_numeric, errors='coerce')
+    numeric_columns = ['Loan Volume', 'Average Interest Rate', 'Total Loan Amount', 'Average Loan to Value']
+    county_shapes_merge[numeric_columns] = county_shapes_merge[numeric_columns].apply(pd.to_numeric, errors='coerce')
 
-gdf = gp.GeoDataFrame(county_shapes_df, geometry='geometry')
+    county_shapes_merge['Average Interest Rate'] = county_shapes_merge['Average Interest Rate'].round(2)
+    county_shapes_merge['Average Loan to Value'] = county_shapes_merge['Average Loan to Value'].round(2)
 
-gdf = gdf[(gdf['Year'] == '2022') & (gdf['Loan Term'] == '30-year')]
+    gdf = gp.GeoDataFrame(county_shapes_merge, geometry='geometry')
 
-m = folium.Map(location= [0,0], zoom_start= 3)
+    gdf = gdf[(gdf['Year'] == year) & (gdf['Loan Term'] == loan_term)]
 
-colormap = folium.LinearColormap(['green', 'blue'], vmin=50, vmax=100)
+    m = folium.Map(location= state_capital_coordinates(state_name), zoom_start= 6)
 
-folium.Choropleth(
-    geo_data= gdf,
-    data = gdf,
-    columns= ['NAME', 'Average Loan to Value'],
-    key_on= 'feature.properties.NAME',
-    fill_color= "YlGn",
-    fill_opacity= 0.7,
-    line_opacity= 0.2,
-    legend_name= 'Heat Map Legend',   
-).add_to(m)
+    folium.Choropleth(
+        geo_data= gdf,
+        data = gdf,
+        columns= ['NAMELSAD', datapoint],
+        key_on= 'feature.properties.NAMELSAD',
+        fill_color= "YlGn",
+        fill_opacity= 0.7,
+        line_opacity= 0.2,
+        legend_name= f'{datapoint} for {state_name}',   
+    ).add_to(m)
 
-# for _, row in gdf.iterrows():
-#     sim_geo = gp.GeoSeries(row['geometry']).simplify(tolerance = 0.001)
-#     geo_j = sim_geo.to_json()
-#     geo_j = folium.GeoJson(data=geo_j, style_function= lambda x: {'fillColor': colormap(row['Average Loan to Value']), 
-#                                                                   'color': 'black', 'weight': 1, 'fillOpacity': 0.7})
-#     folium.Popup(row['NAME']).add_to(geo_j)
-#     geo_j.add_to(m)
+    for _, row in gdf.iterrows():
+        sim_geo = gp.GeoSeries(row['geometry']).simplify(tolerance = 0.001)
+        geo_j = sim_geo.to_json()
+        geo_j = folium.GeoJson(data=geo_j)
+        popup_html = f"<br>{row['NAMELSAD']}<br>{datapoint}: {row[datapoint]}"
+        folium.Popup(popup_html).add_to(geo_j)
+        geo_j.add_to(m)
 
-m.save('choropleth_map_colored.html')
+    m.save(f'tests/dashboards/{state_name}_{year}_{loan_term}_{datapoint}.html')
+
+if __name__ == "__main__":
+    # state_list = ['AZ', 'CO', 'NM', 'UT']
+    state_list = ['CO']
+    year_list = ['2018', '2019', '2020', '2021', '2022']
+    term_list = ['15-year','30-year']
+    datapoint_list = ['Loan Volume', 'Average Interest Rate', 'Total Loan Amount', 'Average Loan to Value']
+    
+    state_shapes_df = gp.read_file('ShapeETL//state_shapes//tl_rd22_us_state.shp')
+    county_shapes_df = gp.read_file('app//data//county_shapes//tl_rd22_us_county.shp')
+
+    state_shapes_df = state_shapes_df[state_shapes_df['STUSPS'] == 'NM']
+    state_shapes_df = state_shapes_df[['STUSPS', 'STATEFP']]
+
+    county_shapes_df = state_shapes_df.merge(county_shapes_df, how = 'inner', left_on = 'STATEFP', right_on = 'STATEFP')
+    
+
+    print(state_shapes_df)
+
+    print(county_shapes_df)
+
+    try:
+        for element in itertools.product(state_list, year_list, term_list, datapoint_list):
+            geo_dashboard(element[0],element[1], element[2], element[3])
+
+    except Exception as e:
+        print(e)

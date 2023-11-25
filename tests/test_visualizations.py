@@ -6,7 +6,9 @@ from app import visualizations as vis
 from app import dashboards as dbs
 
 import pandas as pd
+import geopandas as gp
 import base64
+import itertools
 
 class BasicsTestCase(unittest.TestCase):
     def setUp(self):
@@ -154,19 +156,24 @@ class TestVisualizations(unittest.TestCase):
 
 class TestDashboards(unittest.TestCase):
 
-    def geo_dashboards_test(self, state_name):
+    def geo_dashboards_test(self, state_name, year, loan_term, datapoint):
         try:
-            html_content = dbs.geo_dashboard(state_name= state_name)
+            m = dbs.geo_dashboard(state_name, year, loan_term, datapoint)
+            m.save(f'tests/dashboards/{state_name}_{year}_{loan_term}_{datapoint}.html')
 
-            with open(f'tests/dashboards/{state_name}_geo.html', 'w') as f:
-                f.write(html_content)
-                f.close()
-        
+            # m.info()
+
+            # print(m.head())
+
         except Exception as e:
             print(e)
 
     def test_dashboards(self):
-            state_list = ['AZ', 'CO', 'NM', 'UT']
+        state_list = ['AZ', 'CO', 'NM', 'UT']
+        # state_list =  ['CO']
+        year_list = ['2018', '2019', '2020', '2021', '2022']
+        term_list = ['15-year','30-year']
+        datapoint_list = ['Loan Volume', 'Average Interest Rate', 'Total Loan Amount', 'Average Loan to Value']
 
-            for state in state_list:
-                self.geo_dashboards_test(state_name= state)
+        for element in itertools.product(state_list, year_list, term_list, datapoint_list):
+            self.geo_dashboards_test(element[0],element[1], element[2], element[3])

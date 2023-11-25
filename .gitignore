@@ -160,3 +160,4 @@ Procfile.txt
 ShapeETL/county_shapes/*
 ShapeETL/state_shapes/*
 app/data/county_shapes/*
+app/data/state_shapes/*
