@@ -35,7 +35,7 @@ def geo_dashboard(state_name, year, loan_term, datapoint):
 
     gdf = gdf[(gdf['Year'] == year) & (gdf['Loan Term'] == loan_term)]
 
-    m = folium.Map(location= utl.state_capital_coordinates(state_name), zoom_start= 8)
+    m = folium.Map(location= utl.state_capital_coordinates(state_name), zoom_start= 7)
 
     folium.Choropleth(
         geo_data= gdf,
