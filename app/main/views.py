@@ -2,7 +2,7 @@ from . import main
 from app import visualizations as vis
 from app import csv_export as csv_exp
 from app import utilities as utl
-from flask import render_template, Response
+from flask import render_template, Response, request, redirect, url_for
 
 @main.route('/')
 def index():
@@ -57,3 +57,17 @@ def state_level(state):
 
     return render_template('state_pages.html', state = state, loan_volume_plot = loan_volume_plot, loan_amount_plot = loan_amount_plot,
                            interest_plot = interest_plot, state_long_name = state_long_name, ltv_plot = ltv_plot)
+
+
+@main.route('/state_geography/', methods = ['GET', 'POST'], endpoint = 'state_geo')
+def state_geo():
+    if request.method == 'POST':
+        state_name = redirect.form.get('state')
+        year = redirect.form.get('year')
+        loan_term = redirect.form.get('loan_term')
+        datapoint = redirect.form.get('datapoint')
+
+        return render_template('sky_color.html', color = 'red')
+    
+
+    return render_template('state_geo.html')
