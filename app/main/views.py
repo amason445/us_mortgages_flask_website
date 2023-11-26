@@ -1,5 +1,6 @@
 from . import main
 from app import visualizations as vis
+from app import dashboards as dbs
 from app import csv_export as csv_exp
 from app import utilities as utl
 from flask import render_template, Response, request, redirect, url_for
@@ -62,12 +63,16 @@ def state_level(state):
 @main.route('/state_geography/', methods = ['GET', 'POST'], endpoint = 'state_geo')
 def state_geo():
     if request.method == 'POST':
-        state_name = redirect.form.get('state')
-        year = redirect.form.get('year')
-        loan_term = redirect.form.get('loan_term')
-        datapoint = redirect.form.get('datapoint')
+        state_name = request.form.get('state')
+        year = request.form.get('year')
+        loan_term = request.form.get('loan_term')
+        datapoint = request.form.get('datapoint')
 
-        return render_template('sky_color.html', color = 'red')
+        m = dbs.geo_dashboard(state_name= state_name, year= year, loan_term= loan_term, datapoint= datapoint)
+
+        map_html = m.get_root().render()
+
+        return render_template('state_geo.html', map_html= map_html)
     
-
     return render_template('state_geo.html')
+    

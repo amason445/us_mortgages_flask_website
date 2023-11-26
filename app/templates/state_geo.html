@@ -7,10 +7,10 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     </head>
     <body>
-        <h1>Context 1</h1>
-        <p>.....</p>
-        <h2>fill form</h2>
-        <form action="/map" method="post">
+        <h1>State Geogrphical Visualizations</h1>
+        <p>This page contains geographical data by county for US State mortgages.</p>
+        <h2>Visualization Parameters</h2>
+        <form action="/state_geography/" method="post">
             <!-- Add your dropdowns and other form elements here -->
             <label for="state">State Name:</label>
             <select id="state" name="state" required>
@@ -34,12 +34,19 @@
             </select>
             <label for="datapoint">Datapoint:</label>
             <select id="datapoint" name="datapoint" required>
-                <option value="Average Interest Rate">Colorado</option>
-                <option value="Average Loan to Value">Utah</option>
-                <option value="Total Loan Amount">New Mexico</option>
+                <option value="Average Interest Rate">Average Interest Rate</option>
+                <option value="Average Loan to Value">Average Loan to Value</option>
+                <option value="Total Loan Amount">Total Loan Amount</option>
                 <option value="Loan Volume">Loan Volume</option>
             </select>
             <button type="submit">Generate Map</button>
         </form> 
+        
+        
+        {% if map_html %}
+            
+            {{ map_html|safe }}
+    
+        {% endif %}       
     </body>
 </html>
