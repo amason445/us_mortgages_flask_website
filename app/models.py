@@ -21,13 +21,14 @@ class CouchDBQuery(ABC):
 
 class StateLoanVolumes(CouchDBQuery):
 
-    request_url = Config.COUCHDB_ROOT_URL +  '//state_mortgage_records_v2//_design//state_mortgages_design_//_view//year_state_records?group=true'
+    request_url = Config.COUCHDB_ROOT_URL +  '//state_mortgage_records_v2//_design//state_mortgages_design_//_view//total_loan_volume_per_state?group=true'
 
     def return_df(self):
         df = utl.request_to_df(self.request_url)
-        df[['Year', 'State']] = pd.DataFrame(df['key'].to_list(), index= df.index)
-        df = df[['Year','State', 'value']]
+        df[['Year', 'State', 'Loan Term']] = pd.DataFrame(df['key'].to_list(), index= df.index)
+        df = df[['Year','State','Loan Term', 'value']]
         df = df[df['State'] == self.state_name]
+        df['Loan Term'] = (df['Loan Term'] // 12).astype(str) + '-year'
 
         return df
 

@@ -24,7 +24,7 @@ def state_loan_volumes(state_name):
 
         df = mdl.StateLoanVolumes(state_name= state_name).return_df()
 
-        sns.barplot(data = df, x = 'Year', y = 'value')
+        sns.barplot(data = df, x = 'Year', y = 'value', hue= 'Loan Term')
 
         ax = plt.gca()
         ax.xaxis.set_major_locator(plt.MaxNLocator(integer=True))
