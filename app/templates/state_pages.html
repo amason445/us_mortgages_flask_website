@@ -1,28 +1,68 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>State Time Series Visualizations</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    </head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>State Time Series Visualizations</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body ul.a {
+            list-style-type: circle;
+        }
+    </style>
+</head>
+
 <body>
     <h1>Summary Section</h1>
     <h2>Visualizations</h2>
-    <p>This section contains a set of visualations for the state of {{ state_long_name }}</p>
+    <p>This page contains a set of time series visualizations for the US State of {{ state_long_name }} from the
+        Consumer Protection Finance Bureau’s Home Disclosure Mortgage Act API and seperates 15-year mortgages and
+        30-year mortgages. These
+        visualizations are aggregated from individual mortgage loans and measure a few financial metrics over time:
+    </p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Financial Metric</th>
+                <th>Metric Definition</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Mortgage Loan Volume</strong></td>
+                <td>This is the loan volume for {{ state_long_name }} every year. It measures the number of loans
+                    originated within the state.</td>
+            </tr>
+            <tr>
+                <td><strong>Mortgage Loan Volume ($)</strong></td>
+                <td>This is the total dollar amount loaned in {{ state_long_name }} every year.</td>
+            </tr>
+            <tr>
+                <td><strong>Average Mortgage Rates</strong></td>
+                <td>This is the average interest rates for mortgages in {{ state_long_name }} every year.</td>
+            </tr>
+            <tr>
+                <td><strong>Mortgage Loan to Value</strong></td>
+                <td>This is the average loan-to-value ratio for mortgages in {{ state_long_name }} every year.
+                    Loan-to-Value is calculated as the loan amount divided by the value of the property, and a larger
+                    ratio will indicate a smaller down payment.</td>
+            </tr>
+        </tbody>
+    </table>
     <h3>Mortgage Loan Volume<h3>
-    <img src="data:iamge/png;base64,{{ loan_volume_plot|safe }}">
-    <h3>Mortgage Loan Volume ($)</h3>
-    <img src="data:iamge/png;base64,{{ loan_amount_plot|safe }}">
-    <h3>Average Mortgage Rates</h3>
-    <img src="data:iamge/png;base64,{{ interest_plot|safe }}">
-    <h3>Average Mortgage Loan to Value</h3>
-    <img src="data:iamge/png;base64,{{ ltv_plot|safe }}">
-    <h2>Download State Mortgage Data</h2>
-    <ul>
-        <li><a href="{{ url_for('main.volumes_csv', state = state) }}">Download State Volume Data</a></li>
-        <li><a href="{{ url_for('main.averages_csv', state = state) }}">Download State Averages Data</a></li>
-    </ul>
+            <img src="data:iamge/png;base64,{{ loan_volume_plot|safe }}">
+            <h3>Mortgage Loan Volume ($)</h3>
+            <img src="data:iamge/png;base64,{{ loan_amount_plot|safe }}">
+            <h3>Average Mortgage Rates</h3>
+            <img src="data:iamge/png;base64,{{ interest_plot|safe }}">
+            <h3>Average Mortgage Loan to Value</h3>
+            <img src="data:iamge/png;base64,{{ ltv_plot|safe }}">
+            <h2>Download State Mortgage Data</h2>
+            <ul>
+                <li><a href="{{ url_for('main.averages_csv', state = state) }}">Download State Averages Data</a></li>
+            </ul>
 </body>
 
 </html>

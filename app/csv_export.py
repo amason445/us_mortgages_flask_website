@@ -22,21 +22,6 @@ def generate_dummy_csv():
 
     return output.getvalue()
 
-def mortgage_volume(state_name):
-
-    df = mdl.StateLoanVolumes(state_name= state_name).return_df()
-
-    output = StringIO()
-    writer = csv.writer(output)
-    writer.writerow(['Year', 'State', 'Number of Loans'])
-
-    for index, row in df.iterrows():
-        writer.writerow([row['Year'], row['State'], row['value']])
-
-    output.seek(0)
-
-    return output.getvalue()
-
 def mortgage_averages(state_name):
 
     df1 = mdl.StateLoanAmount(state_name= state_name).return_df()
@@ -56,10 +41,10 @@ def mortgage_averages(state_name):
 
     output = StringIO()
     writer = csv.writer(output)
-    writer.writerow(['Year', 'State', 'Loan Amount', 'Average Interest Rate', 'Average LTV', 'Loan Volume'])
+    writer.writerow(['Year', 'State', 'Loan Term', 'Total Loan Amount', 'Average Interest Rate', 'Average LTV', 'Loan Volume'])
 
     for index, row in final_join.iterrows():
-        writer.writerow([row['Year'], row['State'], row['Loan Amount'], row['Average Interest Rate'], row['Average LTV'], row['Loan Volume']])
+        writer.writerow([row['Year'], row['State'], row['Loan Term'], row['Total Loan Amount'], row['Average Interest Rate'], row['Average LTV'], row['Loan Volume']])
 
     output.seek(0)
 

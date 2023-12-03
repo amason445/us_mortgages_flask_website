@@ -1,7 +1,13 @@
 import app.utilities as utl
 import app.models as mdl
 
+# To increase performance and prevent the web pages from breaking I had to switch to a different matplotlib back end
+# There are performance issues with matplotlib and flask because the default package doesn't like multithreading
+import matplotlib
+matplotlib.use('Agg')
+
 from matplotlib import pyplot as plt
+
 import seaborn as sns
 from io import BytesIO
 import base64

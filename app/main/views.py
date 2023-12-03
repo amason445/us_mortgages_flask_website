@@ -13,6 +13,10 @@ def index():
 def sky_color(color):
     return render_template('sky_color.html', color = color)
 
+@main.route('/references/', endpoint = 'references')
+def references_page():
+    return render_template('references.html')
+
 @main.route('/state_level/dummy_data', endpoint = 'dummy_data')
 def dummy_data():
 
@@ -28,13 +32,6 @@ def download_dummy_data():
     raw_data = csv_exp.generate_dummy_csv()
 
     return Response(raw_data, content_type= 'text/csv', headers={'Content-Disposition': 'attachment; filename=dummy_data.csv'})
-
-@main.route('/state_level/<state>/state_volumes_csv', endpoint = 'volumes_csv')
-def download_state_volumes(state):
-
-    raw_data = csv_exp.mortgage_volume(state_name = state)
-
-    return Response(raw_data, content_type= 'text/csv', headers={'Content-Disposition': f'attachment; filename={state}_volume_data.csv'})
 
 @main.route('/state_level/<state>/state_averages_csv', endpoint = 'averages_csv')
 def download_state_averages(state):

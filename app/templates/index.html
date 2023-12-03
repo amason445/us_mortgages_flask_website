@@ -1,30 +1,33 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title style="background-color: #B8C3C0;">MSDS 696 - Data Engineering Project Landing Page</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    </head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title style="background-color: #B8C3C0;">MSDS 696 - Data Engineering Project Landing Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
 <body>
     <h1>Project Summary</h1>
     <p>This website contains my project for MSDS 696...........</p>
     <h2>Project Directory</h2>
-        <h3>State Geography Landing Page</h3>
-        <ul>
-            <li><a href= "{{ url_for('main.state_geo') }}">State Geography Landing Page</a></li>
-        </ul>
-        <h3>State Time Series Pages</h3>
-        <ul>
-            <li><a href= "{{ url_for('main.state_data', state= 'AZ') }}">Arizona Time Series Data</a></li>
-            <li><a href= "{{ url_for('main.state_data', state= 'CO') }}">Colorado Time Series Data</a></li>
-            <li><a href= "{{ url_for('main.state_data', state= 'NM') }}">New Mexico Time Series Data</a></li>
-            <li><a href= "{{ url_for('main.state_data', state= 'UT') }}">Utah Time Series Data</a></li>
-        </ul>
-        <h3>Initial Demo Page</h3>
-        <ul>
-            <li><a href= "{{ url_for('main.dummy_data') }}">Demo Landing Page</a></li>
-        </ul>
+    <h3>State Geography Landing Page</h3>
+    <ul>
+        <li><a href="{{ url_for('main.state_geo') }}">State Geography Landing Page</a></li>
+    </ul>
+    <h3>State Time Series Pages</h3>
+    <ul>
+        <li><a href="{{ url_for('main.state_data', state= 'AZ') }}">Arizona Time Series Data</a></li>
+        <li><a href="{{ url_for('main.state_data', state= 'CO') }}">Colorado Time Series Data</a></li>
+        <li><a href="{{ url_for('main.state_data', state= 'NM') }}">New Mexico Time Series Data</a></li>
+        <li><a href="{{ url_for('main.state_data', state= 'UT') }}">Utah Time Series Data</a></li>
+    </ul>
+    <h3>References and Miscellaneous</h3>
+    <ul>
+        <li><a href="{{ url_for('main.references') }}">Project References</a></li>
+        <li><a href="{{ url_for('main.dummy_data') }}">Demo Landing Page</a></li>
+    </ul>
 </body>
 
 </html>

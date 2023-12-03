@@ -75,7 +75,28 @@ a {
     background-color: #776B5D;
 }
 
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border: 2px solid #776B5D;
+    border-radius: 5px;
+    overflow: hidden;
+}
 
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #776B5D;
+}
 
+th {
+    background-color: #776B5D;
+    color: #EBE3D5;
+}
+
+tbody tr:hover {
+    background-color: #EBE3D5;
+}
 
 
