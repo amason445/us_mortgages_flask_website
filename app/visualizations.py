@@ -35,7 +35,7 @@ def state_loan_volumes(state_name):
         ax = plt.gca()
         ax.xaxis.set_major_locator(plt.MaxNLocator(integer=True))
 
-        plt.title(f"Mortgage Loan Volume for the US State of {utl.state_abbreviation_mapping(state_name)}")
+        plt.title(f"Loan Volume for the US State of {utl.state_abbreviation_mapping(state_name)}")
         plt.xlabel('Year')
         plt.ylabel('Loan Volume')
 
@@ -118,9 +118,9 @@ def state_loan_amounts(state_name):
         ax = plt.gca()
         ax.xaxis.set_major_locator(plt.MaxNLocator(integer=True))
         
-        plt.title(f"Total Loan Volume in Dollars for the US State of {utl.state_abbreviation_mapping(state_name)}")
+        plt.title(f"Loan Volume ($) for the US State of {utl.state_abbreviation_mapping(state_name)}")
         plt.xlabel('Year')
-        plt.ylabel('Total Loaned ($Ms)')
+        plt.ylabel('Loan Volume ($0000)')
         plt.legend(title = 'Loan Term')
 
         buffer = BytesIO()

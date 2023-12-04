@@ -38,7 +38,7 @@ def download_state_averages(state):
 
     raw_data = csv_exp.mortgage_averages(state_name=state)
 
-    return Response(raw_data, content_type= 'text/csv', headers={'Content-Disposition': f'attachment; filename={state}_averages_data.csv'})
+    return Response(raw_data, content_type= 'text/csv', headers={'Content-Disposition': f'attachment; filename={state}_data.csv'})
 
 
 @main.route('/state_level/<state>', endpoint = 'state_data')

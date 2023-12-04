@@ -51,7 +51,8 @@
             </tr>
         </tbody>
     </table>
-    <h3>Mortgage Loan Volume<h3>
+
+            <h3>Mortgage Loan Volume<h3>
             <img src="data:iamge/png;base64,{{ loan_volume_plot|safe }}">
             <h3>Mortgage Loan Volume ($)</h3>
             <img src="data:iamge/png;base64,{{ loan_amount_plot|safe }}">
@@ -61,7 +62,7 @@
             <img src="data:iamge/png;base64,{{ ltv_plot|safe }}">
             <h2>Download State Mortgage Data</h2>
             <ul>
-                <li><a href="{{ url_for('main.averages_csv', state = state) }}">Download State Averages Data</a></li>
+                <li><a href="{{ url_for('main.averages_csv', state = state) }}">Download State Data</a></li>
             </ul>
 </body>
 

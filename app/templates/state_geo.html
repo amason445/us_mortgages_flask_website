@@ -9,47 +9,82 @@
 </head>
 
 <body>
-    <h1>State Geogrphical Visualizations</h1>
-    <p>This page contains geographical data by county for US State mortgages.</p>
-    <h2>Visualization Parameters</h2>
-    <form action="/state_geography/" method="post">
-        <!-- Add your dropdowns and other form elements here -->
-        <label for="state">State Name:</label>
-        <select id="state" name="state" required>
-            <option value="AZ">Arizona</option>
-            <option value="CO">Colorado</option>
-            <option value="NM">New Mexico</option>
-            <option value="UT">Utah</option>
-        </select>
-        <label for="year">Year:</label>
-        <select id="year" name="year" required>
-            <option value="2018">2018</option>
-            <option value="2019">2019</option>
-            <option value="2020">2020</option>
-            <option value="2021">2021</option>
-            <option value="2022">2022</option>
-        </select>
-        <label for="loan_term">Year:</label>
-        <select id="loan_term" name="loan_term" required>
-            <option value="15-year">15-year Mortgage</option>
-            <option value="30-year">30-year Mortgage</option>
-        </select>
-        <label for="datapoint">Datapoint:</label>
-        <select id="datapoint" name="datapoint" required>
-            <option value="Average Interest Rate">Average Interest Rate</option>
-            <option value="Average Loan to Value">Average Loan to Value</option>
-            <option value="Total Loan Amount">Total Loan Amount</option>
-            <option value="Loan Volume">Loan Volume</option>
-        </select>
-        <button type="submit">Generate Map</button>
-    </form>
+    <h1>State Geographical Visualizations</h1>
+    <p>This page contains geographical data by year, state, and county for US mortgage data. It was sourced from the
+        Consumer Protection Finance Bureau’s Home Disclosure Mortgage Act API. To generate a geographical visualization
+        please select a year, a state, loan term and a data point from the drop downs below. Below is a table that will
+        provide more context on the available data points:</p>
+
+        <h2>Visualization Parameters</h2>
+        <form action="/state_geography/" method="post">
+            <!-- Add your dropdowns and other form elements here -->
+            <label for="state">State Name:</label>
+            <select id="state" name="state" required>
+                <option value="AZ">Arizona</option>
+                <option value="CO">Colorado</option>
+                <option value="NM">New Mexico</option>
+                <option value="UT">Utah</option>
+            </select>
+            <label for="year">Year:</label>
+            <select id="year" name="year" required>
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+            </select>
+            <label for="loan_term">Year:</label>
+            <select id="loan_term" name="loan_term" required>
+                <option value="15-year">15-year Mortgage</option>
+                <option value="30-year">30-year Mortgage</option>
+            </select>
+            <label for="datapoint">Datapoint:</label>
+            <select id="datapoint" name="datapoint" required>
+                <option value="Average Interest Rate">Average Interest Rate</option>
+                <option value="Average Loan to Value">Average Loan to Value</option>
+                <option value="Total Loan Amount">Loan Volume ($)</option>
+                <option value="Loan Volume">Loan Volume</option>
+            </select>
+            <button type="submit">Generate Map</button>
+        </form>
 
 
-    {% if map_html %}
+        {% if map_html %}
 
-    {{ map_html|safe }}
+        {{ map_html|safe }}
 
-    {% endif %}
+        {% endif %}
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Financial Metric</th>
+                    <th>Metric Definition</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Mortgage Loan Volume</strong></td>
+                    <td>This is the loan volume for {{ state_long_name }} every year. It measures the number of loans
+                        originated within the state.</td>
+                </tr>
+                <tr>
+                    <td><strong>Mortgage Loan Volume ($)</strong></td>
+                    <td>This is the total dollar amount loaned in {{ state_long_name }} every year.</td>
+                </tr>
+                <tr>
+                    <td><strong>Average Mortgage Rates</strong></td>
+                    <td>This is the average interest rates for mortgages in {{ state_long_name }} every year.</td>
+                </tr>
+                <tr>
+                    <td><strong>Mortgage Loan to Value</strong></td>
+                    <td>This is the average loan-to-value ratio for mortgages in {{ state_long_name }} every year.
+                        Loan-to-Value is calculated as the loan amount divided by the value of the property, and a larger
+                        ratio will indicate a smaller down payment.</td>
+                </tr>
+            </tbody>
+
+
 </body>
 
 </html>
