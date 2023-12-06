@@ -154,26 +154,26 @@ class TestVisualizations(unittest.TestCase):
             self.ltvs_test(state_name=state)
             self.loan_amount_test(state_name=state)
 
-# class TestDashboards(unittest.TestCase):
+class TestDashboards(unittest.TestCase):
 
-#     def geo_dashboards_test(self, state_name, year, loan_term, datapoint):
-#         try:
-#             m = dbs.geo_dashboard(state_name, year, loan_term, datapoint)
-#             m.save(f'tests/dashboards/{state_name}_{year}_{loan_term}_{datapoint}.html')
+    def geo_dashboards_test(self, state_name, year, loan_term, datapoint):
+        try:
+            m = dbs.geo_dashboard(state_name, year, loan_term, datapoint)
+            m.save(f'tests/dashboards/{state_name}_{year}_{loan_term}_{datapoint}.html')
 
-#             # m.info()
+            # m.info()
 
-#             # print(m.head())
+            # print(m.head())
 
-#         except Exception as e:
-#             print(e)
+        except Exception as e:
+            print(e)
 
-#     def test_dashboards(self):
-#         state_list = ['AZ', 'CO', 'NM', 'UT']
-#         # state_list =  ['CO']
-#         year_list = ['2018', '2019', '2020', '2021', '2022']
-#         term_list = ['15-year','30-year']
-#         datapoint_list = ['Loan Volume', 'Average Interest Rate', 'Total Loan Amount', 'Average Loan to Value']
+    def test_dashboards(self):
+        state_list = ['AZ', 'CO', 'NM', 'UT']
+        # state_list =  ['CO']
+        year_list = ['2018', '2019', '2020', '2021', '2022']
+        term_list = ['15-year','30-year']
+        datapoint_list = ['Loan Volume', 'Average Interest Rate', 'Total Loan Amount', 'Average Loan to Value']
 
-#         for element in itertools.product(state_list, year_list, term_list, datapoint_list):
-#             self.geo_dashboards_test(element[0],element[1], element[2], element[3])
+        for element in itertools.product(state_list, year_list, term_list, datapoint_list):
+            self.geo_dashboards_test(element[0],element[1], element[2], element[3])
