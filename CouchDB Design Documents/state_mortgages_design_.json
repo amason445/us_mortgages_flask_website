@@ -1,6 +1,6 @@
 {
   "_id": "_design/state_mortgages_design_",
-  "_rev": "59-d3d746579337694d2cb2541d22a815bf",
+  "_rev": "61-585cfd86323592941720388e9070640e",
   "views": {
     "year_count": {
       "map": "function(doc) {\n    if (doc.year) {\n        emit(doc.year, 1)\n    }\n}",
@@ -49,6 +49,10 @@
     "total_loans_by_county": {
       "reduce": "_sum",
       "map": "function(doc) {\n  if (doc.state && Array.isArray(doc.record_chunk)) {\n    for (var i = 0; i < doc.record_chunk.length; i++) {\n      var record = doc.record_chunk[i];\n      var county = record.county_code;\n      var loan_term = parseInt(record.loan_term);\n      if (loan_term == 360 || loan_term == 180) {\n        emit([doc.year, doc.state, county, loan_term], 1);\n      }\n    }\n  }\n}"
+    },
+    "total_loan_volume_per_state": {
+      "reduce": "_sum",
+      "map": "function (doc) {\n  if(doc.year && doc.state && Array.isArray(doc.record_chunk)) {\n    for (var i = 0; i < doc.record_chunk.length; i++) {\n      var record = doc.record_chunk[i];\n      var loan_term = parseInt(record.loan_term);\n      if (loan_term == 360 || loan_term == 180) {\n        var loan_amount = parseFloat(record.loan_amount);\n        if (!isNaN(loan_amount)) {\n          emit([doc.year, doc.state, loan_term], 1);\n        }\n      }\n    }\n  }\n}"
     }
   }
 }
