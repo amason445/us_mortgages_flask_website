@@ -39,3 +39,11 @@ This website uses an "Model-View-View-Model" architecture detailed below. First,
 Below, I've included some sample visualizations from the project from Colorado.
 ![alt_text](https://github.com/amason445/us_mortgages_map_reduce/blob/main/tests/graphs/loan_volume_graphs/CO_volumes.png)
 ![alt text](https://github.com/amason445/us_mortgages_map_reduce/blob/main/tests/graphs/interest_rate_graphs/CO_interest_rate.png)
+
+## Future Ideas
+- Migrate the website to the Cloud to increase processing power and scale
+- Build a distributed system with CouchDB to increase scale
+- Scrape more US States and set up the process to scrape annually
+- Build out the website to include more financial metrics, borrower credit and income data and demographic data
+- Set up robust security and error handling for public deployment
+- Incorporate other Flask packages like an email server or migrate to a more robust framework like Django
