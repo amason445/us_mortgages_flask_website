@@ -1,3 +1,5 @@
+THIS IS A COPY OF MY LOG FILE FROM THE BATCH LOAD DURING WEEK 1
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 10/26/2023 06:15:22 PM Worker initialized for: 2022-UT
 10/26/2023 06:15:22 PM Worker initialized for: 2022-NM
 10/26/2023 06:15:22 PM Worker initialized for: 2022-AZ
