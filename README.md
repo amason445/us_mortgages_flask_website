@@ -63,7 +63,7 @@ Below, I've included some sample visualizations from the project from Colorado.
 - What is CouchDB? IBM. (n.d.). https://www.ibm.com/topics/couchdb
 - Mitrani, A. (2022, June 16). Creating choropleth maps with Python’s folium library. Medium. https://towardsdatascience.com/creating-choropleth-maps-with-pythons-folium-library-cfacfb40f56
 - OpenAI. (2023). ChatGPT (Mar 14 version) [Large language model]. https://chat.openai.com/chat
-- Python Visualization. (n.d.). Folium - Folium 0.1.dev1+g6040f42 documentation. https://python-visualization.github.io/folium/latest/
+- Python Visualization. (n.d.). Folium - Folium Documentation. https://python-visualization.github.io/folium/latest/
 - Stonis, M. (n.d.). Model-View-ViewModel - .NET. Model-View-ViewModel - .NET | Microsoft Learn. https://learn.microsoft.com/en-us/dotnet/architecture/maui/mvvm
 - US Census Bureau. (2022, December 5). Tiger/line shapefiles. Census.gov. https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html
 - W3Schools. (n.d.). CSS tutorial. https://www.w3schools.com/css/
