@@ -41,7 +41,7 @@ Below, I've included some sample visualizations from the project from Colorado.
 ![alt text](https://github.com/amason445/us_mortgages_map_reduce/blob/main/tests/graphs/interest_rate_graphs/CO_interest_rate.png)
 
 ## Future Ideas
-- Migrate the website to the Cloud to increase processing power and scale
+- Migrate the website to a cloud service to increase processing power and scale
 - Build a distributed system with CouchDB to increase scale
 - Scrape more US States and set up the process to scrape annually
 - Build out the website to include more financial metrics, borrower credit and income data and demographic data
