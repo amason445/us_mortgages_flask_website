@@ -1,8 +1,14 @@
+"""
+This script acts a module that renders visualizations for the time series pages. 
+Each function acceses a model and then renders a plot using seaborn or matplotlib.
+The plots have to be returned as byte strings to be rendered.
+"""
+
 import app.utilities as utl
 import app.models as mdl
 
-# To increase performance and prevent the web pages from breaking I had to switch to a different matplotlib back end
-# There are performance issues with matplotlib and flask because the default package doesn't like multithreading
+
+# matplotlib doesn't like multithreading. I had to swap the backend to allow it to work with flask.
 import matplotlib
 matplotlib.use('Agg')
 

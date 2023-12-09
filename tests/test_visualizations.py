@@ -3,7 +3,7 @@ This script contains my unit testing frame work. It uses Python's unittest libra
 Currently, it will test the data models, the visualizations and the dashboards for output. I did not not test individual flask routes and jinja templates.
 Each class in this script inherits from Python's test case class and contains test functions and a scoping function to set test parameters.
 Each test function will generate an output from part of a flask app. The scoping functions define the scope of the unit test and iterate over it.
-These outputs are saved in the folders: dashboards, graphs and models.
+These outputs are saved in the folders: dashboards, graphs and models. To run these unit tests, use the console command "flask test."
 I wrote this script with the help of Miguel Grinberg's Flask Web Development: Developing Web Applications with Python.
 """
 
@@ -172,7 +172,7 @@ class TestDashboards(unittest.TestCase):
         try:
             m = dbs.geo_dashboard(state_name, year, loan_term, datapoint)
             m.save(f'tests/dashboards/{state_name}_{year}_{loan_term}_{datapoint}.html')
-
+            
         except Exception as e:
             print(e)
 

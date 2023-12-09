@@ -1,3 +1,13 @@
+"""
+This script is a module whihc contains the data models from CouchDB. 
+These models are implemeneted similarly to an interface in Java like below.
+There is an abstract class called CouchDBQuery that each model inherits from.
+Currently, a CouchDB design document is queries and returned as a Pandas Dataframe.
+Sometimes, multiple design documents are joined together like in the county geo model.
+https://www.w3schools.com/java/java_interface.asp
+"""
+
+
 from app.config import Config
 import app.utilities as utl
 
@@ -5,11 +15,7 @@ from abc import ABC, abstractmethod
 
 import pandas as pd
 
-
-# I wrote a simple interace for the CouchDB querying to help with unit testing
-# I used an abstract method and based it off the below in Java
-# https://www.w3schools.com/java/java_interface.asp
-
+# abstract class that defines the interface 
 class CouchDBQuery(ABC):
   
     def __init__(self, state_name):
@@ -19,6 +25,7 @@ class CouchDBQuery(ABC):
     def return_df(self):
         pass
 
+# this class defines the state mortgage loan volumes
 class StateLoanVolumes(CouchDBQuery):
 
     request_url = Config.COUCHDB_ROOT_URL +  '//state_mortgage_records_v2//_design//state_mortgages_design_//_view//total_loan_volume_per_state?group=true'
@@ -33,6 +40,7 @@ class StateLoanVolumes(CouchDBQuery):
         return df
 
 
+# this class defines the state interest rates
 class StateInterestRateSeries(CouchDBQuery):
 
     request_url = Config.COUCHDB_ROOT_URL + 'state_mortgage_records_v2//_design//state_mortgages_design_//_view//average_interest_rate_per_state?group=true'
@@ -47,6 +55,7 @@ class StateInterestRateSeries(CouchDBQuery):
         
         return df
     
+# this class defines the state mortgage loan amounts
 class StateLoanAmount(CouchDBQuery):
     pass
 
@@ -62,6 +71,7 @@ class StateLoanAmount(CouchDBQuery):
         
         return df
 
+# this class defines the state mortgage loan to values
 class StateLTV(CouchDBQuery):
 
     request_url = Config.COUCHDB_ROOT_URL +  '//state_mortgage_records_v2//_design//state_mortgages_design_//_view//average_ltv_per_state?group=true'
@@ -76,6 +86,7 @@ class StateLTV(CouchDBQuery):
 
         return df
 
+# this class defines the state county geo data
 class CountyGeo(CouchDBQuery):
     county_total_volume_amount_url = Config.COUCHDB_ROOT_URL +  '//state_mortgage_records_v2//_design/state_mortgages_design_//_view//total_loans_by_county?group=true'
     county_interest_rate_url = Config.COUCHDB_ROOT_URL + 'state_mortgage_records_v2//_design//state_mortgages_design_//_view//average_interest_rate_per_county?group=true'

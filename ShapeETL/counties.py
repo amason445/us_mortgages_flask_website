@@ -4,6 +4,9 @@ It takes two shape files from the US Census website and joins them to the CFPB d
 Once this data is merged, geopandas and folium are used to render visualizations.
 For this initial build, I only built the Colorado maps from a CSV to prototype it. I didn't access the CouchDB model since unit testing would be done later.
 https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html
+
+Below is an article explaining a folium choropleth:
+https://towardsdatascience.com/creating-choropleth-maps-with-pythons-folium-library-cfacfb40f56a
 """
 
 import geopandas as gp
@@ -27,7 +30,7 @@ def state_capital_coordinates(abbreviation):
 
 def geo_dashboard(state_name, year, loan_term, datapoint):
 
-    # accesses a raw csv file of the colorado geo model.
+    # accesses a raw csv file of the colorado geo model
     county_data_df = pd.read_csv('tests/models/county_geo/CO_county_geo.csv', dtype= 'object')
     county_data_df['County'] = county_data_df['County'].astype(str)
 
@@ -41,7 +44,7 @@ def geo_dashboard(state_name, year, loan_term, datapoint):
     county_shapes_df = state_shapes_df.merge(county_shapes_df, how = 'inner', on = 'STATEFP')
     county_shapes_df = county_shapes_df[['STUSPS', 'STATEFP', 'GEOID', 'NAMELSAD', 'geometry']]
 
-    #merge state counties with state mortgage data
+    # merge state counties with state mortgage data
     county_shapes_merge = county_shapes_df.merge(county_data_df, how = 'inner', left_on = 'GEOID', right_on = 'County')
 
     # converted string columns to integer columns

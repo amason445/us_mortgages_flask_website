@@ -152,7 +152,6 @@ cython_debug/
 #.idea/
 
 # Flask config file
-config.py
 config_load.toml
 Procfile.txt
 *.ps1

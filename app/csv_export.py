@@ -1,11 +1,14 @@
-from flask import make_response
+"""
+This script asks as a module that writes a data model to a CSV for download.
+There is a dummy csv for initial app testing and a state time series CSV.
+"""
 
 import app.models as mdl
 
 import csv
 from io import StringIO
-import pandas as pd
 
+#this was a dummy csv I used for the initial demo page
 def generate_dummy_csv():
 
     x = list(range(0, 100))
@@ -22,6 +25,7 @@ def generate_dummy_csv():
 
     return output.getvalue()
 
+# this function serves a CSV that combines the data for each of the time series visualizations
 def mortgage_averages(state_name):
 
     df1 = mdl.StateLoanAmount(state_name= state_name).return_df()
