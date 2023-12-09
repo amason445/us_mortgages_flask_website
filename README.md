@@ -74,6 +74,7 @@ Below, I've included some sample visualizations from the project from Colorado i
 - HTML Cheat Sheet. (n.d.). JavaScript (JS) cheat sheet online. https://htmlcheatsheet.com/js/
 - HTML Color Codes. (2015, September 4). Color picker. https://htmlcolorcodes.com/color-picker/
 - What is CouchDB? IBM. (n.d.). https://www.ibm.com/topics/couchdb
+- Latitude and longitude finder. Lat Long Finder. (n.d.). https://www.latlong.net/ 
 - Mitrani, A. (2022, June 16). Creating choropleth maps with Python’s folium library. Medium. https://towardsdatascience.com/creating-choropleth-maps-with-pythons-folium-library-cfacfb40f56
 - OpenAI. (2023). ChatGPT (Mar 14 version) [Large language model]. https://chat.openai.com/chat
 - Python Visualization. (n.d.). Folium - Folium Documentation. https://python-visualization.github.io/folium/latest/
