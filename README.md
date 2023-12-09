@@ -31,7 +31,7 @@ This data was source from the Consumer Protection Finance Bureau's Home Mortgage
 - tests: Contains unit tests and the most recent outputs
 
 ## Flask Architecture
-This website uses an "Model-View-View-Model" architecture detailed below. First, models are queried from CouchDB design document and combined, hen they are wrangled and visualized before finally being rendered into an HMTL/CSS front end view. The models are built using something similar to an interface in Java which makes them easy to reuse and test. These models are brought into a variety of view models leveraging Seaborn, Matplotlib and Folium.
+This website uses an "Model-View-View-Model" architecture detailed below. First, models are queried from CouchDB design document and combined, hen they are wrangled and visualized before finally being rendered into an HMTL/CSS front end view. The models are built using something similar to an interface in Java which makes them easy to reuse and test. These models are brought into a variety of view models leveraging Seaborn, Matplotlib and Folium. The back end uses CouchDB and Design Documents. Each design document in CouchDB will contain up to a maximum of 1000 mortgage records.
 
 - [MVVM Architecture](https://learn.microsoft.com/en-us/dotnet/architecture/maui/mvvm)
 
@@ -50,9 +50,10 @@ Below, I've included some sample visualizations from the project from Colorado i
 - Migrate the website to a cloud service to increase processing power and scale
 - Build a distributed system with CouchDB to increase scale
 - Scrape more US States and set up the process to scrape annually
-- Build out the website to include more financial metrics, borrower credit and income data and demographic data
-- Set up robust security and error handling for public deployment
-- Incorporate other Flask packages like an email server or migrate to a more robust framework like Django
+- Build out the website to include more financial metrics, borrower credit and income data, and demographic data
+- Set up robust security and error handling for a public website deployment
+- Incorporate other Flask packages like an email server
+- Migrate the website to a different framework like Django
 
 ## References
 - Awati, R., & Wigmore, I. (2022). What is monolithic architecture in software? WhatIs.com. https://www.techtarget.com/whatis/definition/monolithic-architecture
