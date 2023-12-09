@@ -5,5 +5,15 @@ This repository contains artifacts from my second capstone project that I built 
 
 The full scrape from the CPFB was 35 gigabytes and included full pipline data of around 90 million mortgage loans from 2018 to 2022. For this scope of this project, I took a subset of this data for Arizona, Colorado, New Mexico and Utah which was about 1.8 gigabytes and contained around 4,630,000 mortgages from 2018 to 2022. Additionally, I had some issues rendering and writing the website views. This portion required a lot of research and I eventually used OpenAI's ChatGPT to help me with some of the rendering, HTML and CSS. Finally, I originally intended to use HoloViews for this project but I switched to Folium. Folium seems to work really well with Flask because it renders cleanly and easily.
 
+## Technology Used
+- Flask
+- CouchDB
+- Python
+- Pandas, GeoPandas, GeoJSON
+- Matplotlib, Seaborn, Folium
+- HTML/CSS
+
+For all packages and dependenices used, please see requirements.txt. A vitural environment was used for this project and this file can be used to conigure it with pip. Use:
+`pip -r requirements.txt`
 
  
