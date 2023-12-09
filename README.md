@@ -21,5 +21,5 @@ For all packages and dependenices used, please see requirements.txt. A vitural e
 This data was source from the Consumer Protection Finance Bureau's Home Mortgage Disclosure Act API. The data collects lending records submitted by nationwide mortgage lenders focusing on residential mortgages. It covers a diverse range of products including fixed rate mortgages, adjustable rate mortgages, VA Loans, first and second liens and includes rich financial data ranging from the loan amount, loan term, interest rates to fees and products costs. Additionally, it includes rich demographic data including ethnicity, gender, income, geographical information and credit information (including Debt to Income). The API documentation and data dictionary are linked below:
 
 - [API Documentation](https://ffiec.cfpb.gov/documentation/api/data-browser/)
-- [Data Dictionary](https://ffiec.cfpb.gov/documentation/publications/loan-level-datasets/lar-data-fields)
+- [Data Dictionary](https://ffiec.cfpb.gov/documentation/publications/loan-level-datasets/lar-data-fields) 
  
