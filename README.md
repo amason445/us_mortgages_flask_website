@@ -37,5 +37,5 @@ This website uses an "Model-View-View-Model" architecture detailed below. First,
 
 ## Sample Data and Results
 Below, I've included some sample visualizations from the project from Colorado.
-
+![alt_text](https://github.com/amason445/us_mortgages_map_reduce/blob/main/tests/graphs/loan_volume_graphs/CO_volumes.png)
 ![alt text](https://github.com/amason445/us_mortgages_map_reduce/blob/main/tests/graphs/interest_rate_graphs/CO_interest_rate.png)
