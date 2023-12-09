@@ -1,0 +1,113 @@
+10/26/2023 06:15:22 PM Worker initialized for: 2022-UT
+10/26/2023 06:15:22 PM Worker initialized for: 2022-NM
+10/26/2023 06:15:22 PM Worker initialized for: 2022-AZ
+10/26/2023 06:15:22 PM Worker initialized for: 2021-CO
+10/26/2023 06:15:22 PM Worker initialized for: 2021-UT
+10/26/2023 06:15:22 PM Worker initialized for: 2021-AZ
+10/26/2023 06:15:22 PM Worker initialized for: 2021-NM
+10/26/2023 06:15:22 PM Worker initialized for: 2020-CO
+10/26/2023 06:15:22 PM Worker initialized for: 2020-UT
+10/26/2023 06:15:22 PM Worker initialized for: 2020-AZ
+10/26/2023 06:15:22 PM Worker initialized for: 2020-NM
+10/26/2023 06:15:22 PM Worker initialized for: 2019-CO
+10/26/2023 06:15:22 PM Worker initialized for: 2019-UT
+10/26/2023 06:17:23 PM 2020-NM API pull: 200
+10/26/2023 06:17:24 PM 2020-NM JSON conversion was successful. Records size: 70715
+10/26/2023 06:17:24 PM 2020-NM. JSON load to DB was successful. Number of Record Chunks: 71
+10/26/2023 06:17:24 PM Worker initialized for: 2019-AZ
+10/26/2023 06:17:53 PM 2022-NM API pull: 200
+10/26/2023 06:17:54 PM 2022-NM JSON conversion was successful. Records size: 44190
+10/26/2023 06:17:54 PM 2022-NM. JSON load to DB was successful. Number of Record Chunks: 45
+10/26/2023 06:17:54 PM Worker initialized for: 2019-NM
+10/26/2023 06:19:26 PM 2019-NM API pull: 200
+10/26/2023 06:19:27 PM 2019-NM JSON conversion was successful. Records size: 45431
+10/26/2023 06:19:27 PM 2019-NM. JSON load to DB was successful. Number of Record Chunks: 46
+10/26/2023 06:19:27 PM Worker initialized for: 2018-CO
+10/26/2023 06:20:13 PM 2021-NM API pull: 200
+10/26/2023 06:20:13 PM 2021-NM JSON conversion was successful. Records size: 76260
+10/26/2023 06:20:13 PM 2021-NM. JSON load to DB was successful. Number of Record Chunks: 77
+10/26/2023 06:20:13 PM Worker initialized for: 2018-UT
+10/26/2023 06:22:53 PM 2022-UT API pull: 200
+10/26/2023 06:22:54 PM 2022-UT JSON conversion was successful. Records size: 132611
+10/26/2023 06:22:54 PM 2022-UT. JSON load to DB was successful. Number of Record Chunks: 133
+10/26/2023 06:22:55 PM Worker initialized for: 2018-AZ
+10/26/2023 06:25:16 PM Worker initialized for: 2022-CO
+10/26/2023 06:25:16 PM Worker initialized for: 2022-UT
+10/26/2023 06:25:16 PM Worker initialized for: 2022-AZ
+10/26/2023 06:25:16 PM Worker initialized for: 2022-NM
+10/26/2023 06:25:16 PM Worker initialized for: 2021-CO
+10/26/2023 06:25:16 PM Worker initialized for: 2021-AZ
+10/26/2023 06:25:16 PM Worker initialized for: 2021-NM
+10/26/2023 06:25:16 PM Worker initialized for: 2020-CO
+10/26/2023 06:25:16 PM Worker initialized for: 2020-UT
+10/26/2023 06:25:16 PM Worker initialized for: 2020-AZ
+10/26/2023 06:25:16 PM Worker initialized for: 2020-NM
+10/26/2023 06:25:16 PM Worker initialized for: 2019-CO
+10/26/2023 06:25:16 PM Worker initialized for: 2019-UT
+10/26/2023 06:28:34 PM 2021-NM API pull: 200
+10/26/2023 06:28:35 PM 2021-NM JSON conversion was successful. Records size: 76260
+10/26/2023 06:28:46 PM 2021-NM. JSON load to DB was successful. Number of Record Chunks: 77
+10/26/2023 06:28:46 PM Worker initialized for: 2019-AZ
+10/26/2023 06:29:00 PM 2022-NM API pull: 200
+10/26/2023 06:29:01 PM 2022-NM JSON conversion was successful. Records size: 44190
+10/26/2023 06:29:07 PM 2022-NM. JSON load to DB was successful. Number of Record Chunks: 45
+10/26/2023 06:29:07 PM Worker initialized for: 2019-NM
+10/26/2023 06:30:11 PM 2020-NM API pull: 200
+10/26/2023 06:30:11 PM 2020-NM JSON conversion was successful. Records size: 70715
+10/26/2023 06:30:22 PM 2020-NM. JSON load to DB was successful. Number of Record Chunks: 71
+10/26/2023 06:30:22 PM Worker initialized for: 2018-CO
+10/26/2023 06:32:07 PM 2019-NM API pull: 200
+10/26/2023 06:32:08 PM 2019-NM JSON conversion was successful. Records size: 45431
+10/26/2023 06:32:14 PM 2019-NM. JSON load to DB was successful. Number of Record Chunks: 46
+10/26/2023 06:32:14 PM Worker initialized for: 2018-UT
+10/26/2023 06:32:25 PM 2022-UT API pull: 200
+10/26/2023 06:32:27 PM 2022-UT JSON conversion was successful. Records size: 132611
+10/26/2023 06:32:45 PM 2022-UT. JSON load to DB was successful. Number of Record Chunks: 133
+10/26/2023 06:32:45 PM Worker initialized for: 2018-AZ
+10/26/2023 06:36:21 PM 2022-CO API pull: 200
+10/26/2023 06:36:22 PM 2022-CO JSON conversion was successful. Records size: 221816
+10/26/2023 06:36:53 PM 2022-CO. JSON load to DB was successful. Number of Record Chunks: 222
+10/26/2023 06:36:53 PM Worker initialized for: 2018-NM
+10/26/2023 06:37:42 PM 2021-UT API pull: 200
+10/26/2023 06:37:44 PM 2021-UT JSON conversion was successful. Records size: 246921
+10/26/2023 06:37:49 PM 2019-UT API pull: 200
+10/26/2023 06:37:51 PM 2019-UT JSON conversion was successful. Records size: 162438
+10/26/2023 06:38:19 PM 2022-AZ API pull: 200
+10/26/2023 06:38:20 PM 2019-UT. JSON load to DB was successful. Number of Record Chunks: 163
+10/26/2023 06:38:21 PM 2022-AZ JSON conversion was successful. Records size: 241896
+10/26/2023 06:38:28 PM 2021-UT. JSON load to DB was successful. Number of Record Chunks: 247
+10/26/2023 06:38:56 PM 2022-AZ. JSON load to DB was successful. Number of Record Chunks: 242
+10/26/2023 06:39:22 PM 2018-NM API pull: 200
+10/26/2023 06:39:23 PM 2018-NM JSON conversion was successful. Records size: 38594
+10/26/2023 06:39:28 PM 2018-NM. JSON load to DB was successful. Number of Record Chunks: 39
+10/26/2023 06:39:44 PM 2019-CO API pull: 200
+10/26/2023 06:39:47 PM 2019-CO JSON conversion was successful. Records size: 303917
+10/26/2023 06:40:21 PM 2018-UT API pull: 200
+10/26/2023 06:40:22 PM 2018-UT JSON conversion was successful. Records size: 120693
+10/26/2023 06:40:27 PM 2019-AZ API pull: 200
+10/26/2023 06:40:30 PM 2019-AZ JSON conversion was successful. Records size: 295782
+10/26/2023 06:40:33 PM 2019-CO. JSON load to DB was successful. Number of Record Chunks: 304
+10/26/2023 06:40:43 PM 2020-UT API pull: 200
+10/26/2023 06:40:45 PM 2020-UT JSON conversion was successful. Records size: 270899
+10/26/2023 06:40:46 PM 2018-UT. JSON load to DB was successful. Number of Record Chunks: 121
+10/26/2023 06:41:24 PM 2019-AZ. JSON load to DB was successful. Number of Record Chunks: 296
+10/26/2023 06:41:31 PM 2018-CO API pull: 200
+10/26/2023 06:41:32 PM 2020-UT. JSON load to DB was successful. Number of Record Chunks: 271
+10/26/2023 06:41:33 PM 2018-CO JSON conversion was successful. Records size: 231043
+10/26/2023 06:41:49 PM 2018-AZ API pull: 200
+10/26/2023 06:41:51 PM 2018-AZ JSON conversion was successful. Records size: 218955
+10/26/2023 06:42:10 PM 2018-CO. JSON load to DB was successful. Number of Record Chunks: 232
+10/26/2023 06:42:17 PM 2021-AZ API pull: 200
+10/26/2023 06:42:21 PM 2021-AZ JSON conversion was successful. Records size: 487348
+10/26/2023 06:42:29 PM 2018-AZ. JSON load to DB was successful. Number of Record Chunks: 219
+10/26/2023 06:43:33 PM 2021-AZ. JSON load to DB was successful. Number of Record Chunks: 488
+10/26/2023 06:43:37 PM 2020-CO API pull: 200
+10/26/2023 06:43:41 PM 2020-CO JSON conversion was successful. Records size: 480608
+10/26/2023 06:43:46 PM 2020-AZ API pull: 200
+10/26/2023 06:43:51 PM 2020-AZ JSON conversion was successful. Records size: 487940
+10/26/2023 06:44:13 PM 2021-CO API pull: 200
+10/26/2023 06:44:17 PM 2021-CO JSON conversion was successful. Records size: 444018
+10/26/2023 06:45:13 PM 2020-CO. JSON load to DB was successful. Number of Record Chunks: 481
+10/26/2023 06:45:26 PM 2020-AZ. JSON load to DB was successful. Number of Record Chunks: 488
+10/26/2023 06:45:40 PM 2021-CO. JSON load to DB was successful. Number of Record Chunks: 445
+11/11/2023 09:36:03 PM hi
