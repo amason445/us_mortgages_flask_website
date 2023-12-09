@@ -1,6 +1,6 @@
 {
   "_id": "_design/state_mortgages_design_",
-  "_rev": "61-585cfd86323592941720388e9070640e",
+  "_rev": "62-7736d58a566d6b822d3fffbaade3eca4",
   "views": {
     "year_count": {
       "map": "function(doc) {\n    if (doc.year) {\n        emit(doc.year, 1)\n    }\n}",
