@@ -37,7 +37,7 @@ This data was sourced from the Consumer Finance Protection Bureau's Home Mortgag
 - tests: Contains unit tests and the most recent outputs from these tests
 
 ## Flask Architecture
-This website uses an "Model-View-View-Model" architecture detailed below. First, models are queried and combined from CouchDB design documents, then they are wrangled and visualized before finally being rendered into an HMTL/CSS front end. The data models are built using something similar to an interface in Java which makes them easy to reuse and test. For visualization, these models are brought into a variety of view models leveraging Seaborn, Matplotlib and Folium. Finally, on the back end, ach raw document in CouchDB will contain up to a maximum of 1000 mortgage records and each design document will map reduce these raw document.
+This website uses the "Model-View-View-Model" architecture detailed below. First, models are queried and combined from CouchDB design documents, then they are wrangled and visualized before finally being rendered into an HMTL/CSS front end. The data models are built using something similar to an interface in Java which makes them easy to reuse and test. For visualization, these models are brought into a variety of view models leveraging Seaborn, Matplotlib and Folium. Finally, on the back end, ach raw document in CouchDB will contain up to a maximum of 1000 mortgage records and each design document will map reduce these raw document.
 
 - [MVVM Architecture](https://learn.microsoft.com/en-us/dotnet/architecture/maui/mvvm)
 
