@@ -19,8 +19,8 @@ For all packages and dependenices used, please see requirements.txt. A vitural e
 To deploy this website, you will need to set the following environment variables:
 
 - `$env:FLASK_APP = ".\app\flasky.py"`
-- `$env:FLASK_DEBUG = 1`
-- `$env:COUCHDB_ROOT_URL = 'YOUR_COUCH_DB_ROOT_URL"`
+- `$env:FLASK_DEBUG = 1 (for debug mode)
+- `$env:COUCHDB_ROOT_URL = "YOUR_COUCH_DB_ROOT_URL"`
 
 ## Data Source
 
