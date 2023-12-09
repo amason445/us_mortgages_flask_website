@@ -41,7 +41,7 @@ def dummy_data():
 
     return render_template('visualization_template.html', state = state, plot = plot)
 
-# this acts as a download link for the demo data
+# acts as a download link for the demo data
 @main.route('/state_level/download_dummy_csv', endpoint = 'dummy_csv')
 def download_dummy_data():
 
@@ -49,7 +49,7 @@ def download_dummy_data():
 
     return Response(raw_data, content_type= 'text/csv', headers={'Content-Disposition': 'attachment; filename=dummy_data.csv'})
 
-# this link acts as a download link for the state data
+# acts as a download link for the state time series data
 @main.route('/state_level/<state>/state_averages_csv', endpoint = 'averages_csv')
 def download_state_averages(state):
 
