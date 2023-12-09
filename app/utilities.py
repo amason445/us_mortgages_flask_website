@@ -18,6 +18,7 @@ def state_abbreviation_mapping(abbreviation):
             return 'Utah'
         
 # maps the state names to the coordinates of their capital cities
+# googled them and took them from here: https://www.latlong.net/
 def state_capital_coordinates(abbreviation):
         match abbreviation:
             case 'AZ':

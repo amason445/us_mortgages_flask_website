@@ -16,7 +16,8 @@ import folium
 
 import itertools
 
-# this function maps the state abbreviation to the lattitude and longitudinal coordinates for each state capital in scope. I googled these coordinate pairs.
+# this function maps the state abbreviation to the lattitude and longitudinal coordinates for each state capital in scope. 
+# I googled these coordinate pairs and pulled them from: https://www.latlong.net/
 def state_capital_coordinates(abbreviation):
         match abbreviation:
             case 'AZ':
