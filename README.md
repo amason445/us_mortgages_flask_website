@@ -68,5 +68,4 @@ Below, I've included some sample visualizations from the project from Colorado.
 - US Census Bureau. (2022, December 5). Tiger/line shapefiles. Census.gov. https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html
 - W3Schools. (n.d.). CSS tutorial. https://www.w3schools.com/css/
 - W3Schools. (n.d.). Java Interface. https://www.w3schools.com/java/java_interface.asp
-![image](https://github.com/amason445/us_mortgages_map_reduce/assets/77219320/7349bd65-46a4-4f81-8772-1a847e52bde5)
 
