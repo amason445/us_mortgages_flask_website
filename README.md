@@ -29,4 +29,9 @@ This data was source from the Consumer Protection Finance Bureau's Home Mortgage
 - app: Contains the full Flask app including modules and HTML/CSS templates needed to render the website.
 - load_db: Contains the load process from the API to CouchDB. The initial logs are included.
 - tests: Contains unit tests and the most recent outputs
+
+## Flask Architecture
+This website uses an "Model-View-View-Model" architecture detailed below. First, models are queried from CouchDB design document and combined, hen they are wrangled and visualized before finally being rendered into an HMTL/CSS front end view. The models are built using something similar to an interface in Java which makes them easy to reuse and test. These models are brought into a variety of view models leveraging Seaborn, Matplotlib and Folium.
+
+- [MVVM Architecture](https://learn.microsoft.com/en-us/dotnet/architecture/maui/mvvm)
  
