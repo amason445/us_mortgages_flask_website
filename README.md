@@ -36,7 +36,13 @@ This website uses an "Model-View-View-Model" architecture detailed below. First,
 - [MVVM Architecture](https://learn.microsoft.com/en-us/dotnet/architecture/maui/mvvm)
 
 ## Sample Data and Results
-Below, I've included some sample visualizations from the project from Colorado.
+Below, I've included some sample visualizations from the project from Colorado including renderings of sample dashboards:
+
+- [Colorado Loan Volume - 2022](https://amason445.github.io/us_mortgages_flask_website/example_dashboards/CO_2022_30-year_Loan%20Volume.html)
+- [Colorado Loan Volume ($) - 2022](https://amason445.github.io/us_mortgages_flask_website/example_dashboards/CO_2022_30-year_Total%20Loan%20Amount.html)
+- [Colorado Interest Rates - 2022](https://amason445.github.io/us_mortgages_flask_website/example_dashboards/CO_2022_30-year_Average%20Interest%20Rate.html)
+- [Colorado Loan to Values - 2022](https://amason445.github.io/us_mortgages_flask_website/example_dashboards/CO_2022_30-year_Average%20Loan%20to%20Value.html)
+
 ![alt_text](https://github.com/amason445/us_mortgages_map_reduce/blob/main/tests/graphs/loan_volume_graphs/CO_volumes.png)
 ![alt text](https://github.com/amason445/us_mortgages_map_reduce/blob/main/tests/graphs/interest_rate_graphs/CO_interest_rate.png)
 
