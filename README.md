@@ -47,3 +47,26 @@ Below, I've included some sample visualizations from the project from Colorado.
 - Build out the website to include more financial metrics, borrower credit and income data and demographic data
 - Set up robust security and error handling for public deployment
 - Incorporate other Flask packages like an email server or migrate to a more robust framework like Django
+
+## References
+- Awati, R., & Wigmore, I. (2022). What is monolithic architecture in software? WhatIs.com. https://www.techtarget.com/whatis/definition/monolithic-architecture
+- Color Hunt. (n.d.). Color palette: #F3EEEA #ebe3d5 #B0A695 #776B5D. https://colorhunt.co/palette/f3eeeaebe3d5b0a695776b5d
+- Consumer Financial Protection Bureau. (n.d.). Home Mortgage Disclosure Act - Data browser API. HMDA Documentation. https://ffiec.cfpb.gov/documentation/api/data-browser/
+- Consumer Financial Protection Bureau. (n.d.). Home Mortgage Disclosure Act - Public HMDA - LAR Data Fields. HMDA Documentation. https://ffiec.cfpb.gov/documentation/publications/loan-level-datasets/lar-data-fields
+- Design Documents - Apache CouchDB Documentation. (n.d.). https://docs.couchdb.org/en/stable/ddocs/index.html
+- Frank, S. (n.d.). Home price to income ratio. Longtermtrends. https://www.longtermtrends.net/home-price-median-annual-income-ratio/ 
+- GeeksforGeeks. (2023, July 10). HTML cheat sheet - a basic guide to HTML. https://www.geeksforgeeks.org/html-cheat-sheet-a-basic-guide-to-html/
+- GeoPandas. (n.d.). Interactive mapping. https://geopandas.org/en/stable/docs/user_guide/interactive_mapping.html
+- Grinberg, M. (2018). Flask web development: Developing web applications with Python. O’Reilly.
+- HTML Cheat Sheet. (n.d.). JavaScript (JS) cheat sheet online. https://htmlcheatsheet.com/js/
+- HTML Color Codes. (2015, September 4). Color picker. https://htmlcolorcodes.com/color-picker/
+- What is CouchDB? IBM. (n.d.). https://www.ibm.com/topics/couchdb
+- Mitrani, A. (2022, June 16). Creating choropleth maps with Python’s folium library. Medium. https://towardsdatascience.com/creating-choropleth-maps-with-pythons-folium-library-cfacfb40f56
+- OpenAI. (2023). ChatGPT (Mar 14 version) [Large language model]. https://chat.openai.com/chat
+- Python Visualization. (n.d.). Folium - Folium 0.1.dev1+g6040f42 documentation. https://python-visualization.github.io/folium/latest/
+- Stonis, M. (n.d.). Model-View-ViewModel - .NET. Model-View-ViewModel - .NET | Microsoft Learn. https://learn.microsoft.com/en-us/dotnet/architecture/maui/mvvm
+- US Census Bureau. (2022, December 5). Tiger/line shapefiles. Census.gov. https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html
+- W3Schools. (n.d.). CSS tutorial. https://www.w3schools.com/css/
+- W3Schools. (n.d.). Java Interface. https://www.w3schools.com/java/java_interface.asp
+![image](https://github.com/amason445/us_mortgages_map_reduce/assets/77219320/7349bd65-46a4-4f81-8772-1a847e52bde5)
+
