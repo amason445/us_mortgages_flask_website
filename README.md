@@ -13,7 +13,7 @@ The full scrape from the CPFB was 35 gigabytes and included full pipline data of
 - Matplotlib, Seaborn, Folium
 - HTML/CSS
 
-For all packages and dependenices used, please see requirements.txt. A vitural environment was used for this project and this file can be used to conigure it with pip. Use:
+For all packages and dependenices used, please see requirements.txt. A vitural environment was used for this project and this file can be used to conigure it with pip.<br> Use:
 `pip -r requirements.txt`
 
  
